@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1b7d99cf2d2f2499050f1031bc92fe, type: 3}
+  m_Name: Revolver
+  m_EditorClassIdentifier: 
+  WeaponId: 0
+  AmmoInTheClip: 3333
+  AllAmmo: 32
+  MaxAmmo: 64
+  GunDamage: 54
+  TimeToShoot: 1
+  WeaponSprite: {fileID: 4011165979584494121, guid: ab9b743d93f9e0d44a98f2d121f00eab, type: 3}
+  Bullet: {fileID: 1087183643505389332, guid: 6ec18d8feb8c4844cbc156d186778a32, type: 3}
+  BulletSpawnPointPosition: {x: 0.177, y: 0.0653, z: 0}

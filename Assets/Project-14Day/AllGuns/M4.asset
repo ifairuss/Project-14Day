@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1b7d99cf2d2f2499050f1031bc92fe, type: 3}
+  m_Name: M4
+  m_EditorClassIdentifier: 
+  WeaponId: 1
+  AmmoInTheClip: 8
+  AllAmmo: 32
+  MaxAmmo: 64
+  GunDamage: 54
+  TimeToShoot: 0.3
+  WeaponSprite: {fileID: 490285007923106934, guid: d858e82195ab72f4da7a99d4f66bc427, type: 3}
+  Bullet: {fileID: 1087183643505389332, guid: a2a6fdde9c241f4409851eb59926d082, type: 3}
+  BulletSpawnPointPosition: {x: 0.4541, y: 0.0653, z: 0}

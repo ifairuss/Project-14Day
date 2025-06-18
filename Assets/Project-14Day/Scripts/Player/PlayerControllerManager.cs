@@ -12,6 +12,7 @@ public class PlayerControllerManager : MonoBehaviour
 
     private PlayerInput _playerInput;
     private CameraFollow _playerCamera;
+    private Guns _playerGunsManager;
 
     private void Awake()
     {
@@ -22,13 +23,18 @@ public class PlayerControllerManager : MonoBehaviour
     {
         _playerInput = GameObject.FindWithTag("PlayerInterface").GetComponent<PlayerInput>();
         _playerCamera = GameObject.FindWithTag("MainCamera").GetComponent<CameraFollow>();
+        _playerGunsManager = GameObject.FindWithTag("WeponsManager").GetComponent<Guns>();
 
         _playerRigidbody = GetComponent<Rigidbody2D>();
+
+        _playerGunsManager.Initialized();
+
+        AllButtons();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        AllController();
+        AllController();;
     }
 
     private void AllController()
@@ -38,7 +44,14 @@ public class PlayerControllerManager : MonoBehaviour
 
     private void Move()
     {
-        _playerRigidbody.linearVelocity = _playerInput.PlayerMovementInput(transform) * _playerSpeed;
+        _playerInput.WeaponRotate(_playerGunsManager.transform);
+        _playerRigidbody.linearVelocity = _playerInput.PlayerMovementInput(_playerGunsManager.transform, transform) * _playerSpeed;
         _playerCamera.CameraFollowAtPlayer(_cameraFollowSpeed);
+        _playerInput.WeponShoots(_playerGunsManager);
+    }
+
+    private void AllButtons()
+    {
+        _playerInput.AllButtonInit(_playerGunsManager);
     }
 }

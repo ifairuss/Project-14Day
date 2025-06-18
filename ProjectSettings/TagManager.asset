@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - PlayerInterface
+  - WeponsManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BulletInteraction
   - Water
   - UI
   - 
