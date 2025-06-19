@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: M4
   m_EditorClassIdentifier: 
   WeaponId: 1
-  AmmoInTheClip: 8
-  AllAmmo: 32
-  MaxAmmo: 64
+  AmmoInTheClip: 30
+  AllAmmo: 180
+  MaxAmmo: 240
+  MaxAmmoInTheClip: 30
   GunDamage: 54
-  TimeToShoot: 0.3
+  TimeToShoot: 0.1
   WeaponSprite: {fileID: 490285007923106934, guid: d858e82195ab72f4da7a99d4f66bc427, type: 3}
   Bullet: {fileID: 1087183643505389332, guid: a2a6fdde9c241f4409851eb59926d082, type: 3}
   BulletSpawnPointPosition: {x: 0.4541, y: 0.0653, z: 0}

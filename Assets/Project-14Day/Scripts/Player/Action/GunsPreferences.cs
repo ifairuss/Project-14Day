@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "Gun", menuName = "Add Gun/New Gun", order = 0)]
+[CreateAssetMenu(fileName = "Gun", menuName = "Add new item/New Gun", order = 0)]
 public class GunsPreferences : ScriptableObject
 {
     public int WeaponId; 
@@ -9,6 +9,7 @@ public class GunsPreferences : ScriptableObject
     public int AmmoInTheClip;
     public int AllAmmo;
     public int MaxAmmo;
+    public int MaxAmmoInTheClip;
 
     public float GunDamage;
     public float TimeToShoot;

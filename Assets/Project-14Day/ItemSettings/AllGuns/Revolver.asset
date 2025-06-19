@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Revolver
   m_EditorClassIdentifier: 
   WeaponId: 0
-  AmmoInTheClip: 3333
+  AmmoInTheClip: 8
   AllAmmo: 32
   MaxAmmo: 64
+  MaxAmmoInTheClip: 8
   GunDamage: 54
-  TimeToShoot: 1
+  TimeToShoot: 0.5
   WeaponSprite: {fileID: 4011165979584494121, guid: ab9b743d93f9e0d44a98f2d121f00eab, type: 3}
   Bullet: {fileID: 1087183643505389332, guid: 6ec18d8feb8c4844cbc156d186778a32, type: 3}
   BulletSpawnPointPosition: {x: 0.177, y: 0.0653, z: 0}
