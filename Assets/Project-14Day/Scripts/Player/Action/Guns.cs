@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Guns : MonoBehaviour
 {
-    public int AllAmmo = 0;
-
+    private int _allAmmo = 0;
     private int _ammoInTheClip = 0;
     private int _maxAmmo = 0;
     private int _maxAmmoInTheClip = 0;
@@ -39,7 +37,7 @@ public class Guns : MonoBehaviour
     private void StartWeapon()
     {
         _ammoInTheClip = _allGuns[_weaponId].AmmoInTheClip;
-        AllAmmo = _allGuns[_weaponId].AllAmmo;
+        _allAmmo = _allGuns[_weaponId].AllAmmo;
         _maxAmmo = _allGuns[_weaponId].MaxAmmo;
         _maxAmmoInTheClip = _allGuns[_weaponId].MaxAmmoInTheClip;
         _timeToBtwShoot = _allGuns[_weaponId].TimeToShoot;
@@ -48,7 +46,7 @@ public class Guns : MonoBehaviour
 
         _point.localPosition = _allGuns[_weaponId].BulletSpawnPointPosition;
 
-        _ammoCounterText.text = $"{_ammoInTheClip}/{AllAmmo}";
+        _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
     }
 
     public void Shoot()
@@ -58,7 +56,7 @@ public class Guns : MonoBehaviour
             if (_timeToShoot <= 0)
             {
                 _ammoInTheClip -= 1;
-                _ammoCounterText.text = $"{_ammoInTheClip}/{AllAmmo}";
+                _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
                 _timeToShoot = _timeToBtwShoot;
                 Instantiate(_bullet, _point.position, transform.rotation);
             }
@@ -71,22 +69,37 @@ public class Guns : MonoBehaviour
 
     public void Reload()
     {
-        if (AllAmmo > 0)
+        if (_allAmmo > 0)
         {
             int needAddAmmo = _maxAmmoInTheClip - _ammoInTheClip;
 
-            if (AllAmmo >= needAddAmmo){ 
+            if (_allAmmo >= needAddAmmo){ 
                 _ammoInTheClip += needAddAmmo;
-                AllAmmo -= needAddAmmo;
+                _allAmmo -= needAddAmmo;
             }
-            else if (AllAmmo < needAddAmmo)
+            else if (_allAmmo < needAddAmmo)
             {
-                _ammoInTheClip += AllAmmo;
-                AllAmmo -= AllAmmo;
+                _ammoInTheClip += _allAmmo;
+                _allAmmo -= _allAmmo;
             }
 
-            _ammoCounterText.text = $"{_ammoInTheClip}/{AllAmmo}";
+            _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
         }
+    }
+
+    public void AddAmmo(int ammo)
+    {
+        if((ammo + _allAmmo) < _maxAmmo)
+        {
+            _allAmmo += ammo;
+        }
+        else
+        {
+            int needAmmo = _maxAmmo - _allAmmo;
+            _allAmmo += needAmmo;
+        }
+
+        _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
     }
 
     public void GunSwitch()
@@ -96,7 +109,7 @@ public class Guns : MonoBehaviour
             _weaponId += 1;
 
             _ammoInTheClip = _allGuns[_weaponId].AmmoInTheClip;
-            AllAmmo = _allGuns[_weaponId].AllAmmo;
+            _allAmmo = _allGuns[_weaponId].AllAmmo;
             _maxAmmo = _allGuns[_weaponId].MaxAmmo;
             _maxAmmoInTheClip = _allGuns[_weaponId].MaxAmmoInTheClip;
             _timeToBtwShoot = _allGuns[_weaponId].TimeToShoot;
@@ -105,14 +118,14 @@ public class Guns : MonoBehaviour
 
             _point.localPosition = _allGuns[_weaponId].BulletSpawnPointPosition;
 
-            _ammoCounterText.text = $"{_ammoInTheClip}/{AllAmmo}";
+            _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
         }
         else
         {
             _weaponId = 0;
 
             _ammoInTheClip = _allGuns[_weaponId].AmmoInTheClip;
-            AllAmmo = _allGuns[_weaponId].AllAmmo;
+            _allAmmo = _allGuns[_weaponId].AllAmmo;
             _maxAmmo = _allGuns[_weaponId].MaxAmmo;
             _maxAmmoInTheClip = _allGuns[_weaponId].MaxAmmoInTheClip;
             _timeToBtwShoot = _allGuns[_weaponId].TimeToShoot;
@@ -121,7 +134,7 @@ public class Guns : MonoBehaviour
 
             _point.localPosition = _allGuns[_weaponId].BulletSpawnPointPosition;
 
-            _ammoCounterText.text = $"{_ammoInTheClip}/{AllAmmo}";
+            _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
         }
     }
 }
