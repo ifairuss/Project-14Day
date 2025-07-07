@@ -8,6 +8,9 @@ public class PlayerControllerManager : MonoBehaviour
     [SerializeField] private float _playerSpeed;
     [SerializeField] private float _cameraFollowSpeed;
 
+    [Header("⚙️ Player ststs")]
+    [SerializeField] private int _playerHealth;
+
     private Rigidbody2D _playerRigidbody;
 
     private PlayerInput _playerInput;
@@ -34,7 +37,19 @@ public class PlayerControllerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        AllController();;
+        AllController();
+
+        GameOver();
+    }
+
+    private void GameOver()
+    {
+        if (_playerHealth <= 0)
+        {
+            Debug.Log("Player is dead");
+
+            Destroy(gameObject);
+        }
     }
 
     private void AllController()
@@ -53,5 +68,10 @@ public class PlayerControllerManager : MonoBehaviour
     private void AllButtons()
     {
         _playerInput.AllButtonInit(_playerGunsManager);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _playerHealth -= damage;
     }
 }

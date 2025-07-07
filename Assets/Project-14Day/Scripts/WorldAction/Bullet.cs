@@ -17,12 +17,16 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector2.right * _bulletSpeed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_bulletLayer == (_bulletLayer | (1 << collision.gameObject.layer)))
         {
+            print($"Bullet hit: {collision.gameObject.name}");
+
+            EnemyManager enemyManager = collision.gameObject.GetComponent<EnemyManager>();
+
+            enemyManager?.TakeDamage(_bulletDamage);
             Destroy(gameObject);
-            Destroy(collision.gameObject);
         }
     }
 }
