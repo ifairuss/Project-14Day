@@ -3,8 +3,6 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static EnemyManager Instance { get; private set; }
-
     [Header("Enemy settings")]
     [SerializeField] private EnemyPreferences _enemyPreferences;
 
@@ -28,10 +26,10 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        Initialize();
+        InitializedEnemy();
     }
 
-    public void Initialize()
+    public void InitializedEnemy()
     {
         _enemyMoving = GetComponent<EnemyMoving>();
         _enemyHealthSlider = GetComponentInChildren<Slider>();
