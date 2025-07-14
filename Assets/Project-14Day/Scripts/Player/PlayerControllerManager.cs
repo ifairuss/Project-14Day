@@ -9,7 +9,12 @@ public class PlayerControllerManager : MonoBehaviour
     [SerializeField] private float _cameraFollowSpeed;
 
     [Header("⚙️ Player ststs")]
-    [SerializeField] private int _playerHealth;
+    [SerializeField] private int _playerMaxHealth;
+
+    [Header("⚙️ Player Components")]
+    [SerializeField] private Transform _playerSpawnPoint;
+
+    private int _playerHealth;
 
     private Rigidbody2D _playerRigidbody;
 
@@ -33,6 +38,8 @@ public class PlayerControllerManager : MonoBehaviour
         _playerGunsManager.Initialized();
 
         AllButtons();
+
+        _playerHealth = _playerMaxHealth;
     }
 
     private void FixedUpdate()
@@ -48,7 +55,9 @@ public class PlayerControllerManager : MonoBehaviour
         {
             Debug.Log("Player is dead");
 
-            Destroy(gameObject);
+            transform.position = _playerSpawnPoint.position;
+            _playerHealth = _playerMaxHealth;
+            FertilizerManager.Instance.RemoveMoney(10);
         }
     }
 

@@ -206,9 +206,10 @@ GameObject:
   - component: {fileID: 92775715}
   - component: {fileID: 92775714}
   - component: {fileID: 92775713}
+  - component: {fileID: 92775717}
   m_Layer: 0
   m_Name: Fertilizer
-  m_TagString: Untagged
+  m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -346,6 +347,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &92775717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92775712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6af203a61a82f247a127fde1410c78f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyAmount: 10
 --- !u!1 &141417002
 GameObject:
   m_ObjectHideFlags: 0

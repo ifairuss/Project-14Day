@@ -89,6 +89,11 @@ public class EnemyManager : MonoBehaviour
     {
         if (_enemyHealth <= 0)
         {
+            if (_enemyPreferences.EnemyDrop.Length > 0)
+            {
+                Instantiate(_enemyPreferences.EnemyDrop[Random.Range(0, _enemyPreferences.EnemyDrop.Length)], transform.position, Quaternion.identity);
+            }
+
             Destroy(_enemyHealthSlider.gameObject);
             Destroy(gameObject);
             Debug.Log($"{gameObject.name} - Enemy is dead");

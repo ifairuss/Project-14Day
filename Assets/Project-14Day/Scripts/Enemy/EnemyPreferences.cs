@@ -11,4 +11,6 @@ public class EnemyPreferences : ScriptableObject
     public float DetectionRange;
     public float EnemyHPSliderDistanceFromHead;
     public float EnemyStopDistanceForPlayer;
+
+    public GameObject[] EnemyDrop;
 }
