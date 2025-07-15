@@ -15,8 +15,9 @@ MonoBehaviour:
   Health: 150
   Damage: 20
   Speed: 1.3
-  AttackRange: 0.8445773
   AttackCooldown: 1.5
   DetectionRange: 7
   EnemyHPSliderDistanceFromHead: 0.7
   EnemyStopDistanceForPlayer: 1.15
+  EnemyDrop:
+  - {fileID: 7102698957492825075, guid: 115c18828b9d1644eb11e43d1a790d4f, type: 3}
