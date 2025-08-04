@@ -13,6 +13,7 @@ public class PlayerControllerManager : MonoBehaviour
 
     [Header("⚙️ Player Components")]
     [SerializeField] private Transform _playerSpawnPoint;
+    [SerializeField] private ButtonSpawner _buttonSpawner;
 
     private int _playerHealth;
 
@@ -82,5 +83,27 @@ public class PlayerControllerManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _playerHealth -= damage;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Altar"))
+        {
+            _buttonSpawner.gameObject.SetActive(true);
+
+            EnemySpawner enemySpawner = other.GetComponent<EnemySpawner>();
+
+            _buttonSpawner.EnemySpawnerPreferences = enemySpawner?.EnemyThisSpawnerPreferences;
+            _buttonSpawner.AltarPosition = enemySpawner.transform.position;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Altar"))
+        {
+            _buttonSpawner.gameObject.SetActive(false);
+            _buttonSpawner.EnemySpawnerPreferences = null;
+        }
     }
 }

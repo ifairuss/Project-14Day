@@ -9,6 +9,7 @@ TagManager:
   - AmmoCounter
   - LootBox
   - Money
+  - Altar
   layers:
   - Default
   - TransparentFX
