@@ -3,14 +3,23 @@ using UnityEngine;
 public class ButtonSpawner : MonoBehaviour
 {
     public EnemySpawnerPreferences EnemySpawnerPreferences;
+    public EnemySpawner EnemySpawner;
     public Vector2 AltarPosition;
 
-    public void EnemySpawner()
+    public void StartWave()
     {
-        int enemyVar = Random.Range(0, EnemySpawnerPreferences.EnemyPrefabs.Length);
+        int randomEnemyCount = Random.Range(3, 8);
 
-        Instantiate(EnemySpawnerPreferences.EnemyPrefabs[enemyVar], AltarPosition, Quaternion.identity);
+        for (int i = 0; i < randomEnemyCount; i++)
+        {
+            int spawnPointIndex = Random.Range(0, EnemySpawner.EnemySpawnPoints.Count);
+                int randomEnemy = Random.Range(0, EnemySpawnerPreferences.EnemyPrefabs.Length);
 
-        print($"{EnemySpawnerPreferences.name}");
+                GameObject enemy = Instantiate(EnemySpawnerPreferences.EnemyPrefabs[randomEnemy], EnemySpawner.EnemySpawnPoints[spawnPointIndex].position, Quaternion.identity);
+
+                enemy.transform.SetParent(EnemySpawner.transform);
+
+                print($"{EnemySpawnerPreferences.name}");
+        }
     }
 }

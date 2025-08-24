@@ -95,6 +95,7 @@ public class PlayerControllerManager : MonoBehaviour
 
             _buttonSpawner.EnemySpawnerPreferences = enemySpawner?.EnemyThisSpawnerPreferences;
             _buttonSpawner.AltarPosition = enemySpawner.transform.position;
+            _buttonSpawner.EnemySpawner = enemySpawner;
         }
     }
 

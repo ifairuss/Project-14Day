@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spawner_Zone-1
   m_EditorClassIdentifier: 
   EnemyPrefabs:
-  - {fileID: 4465898484249468059, guid: 4a3ae13bb52ef1240aa6db0d527ea0c2, type: 3}
-  - {fileID: 5010441010778498419, guid: be46acbd45353a44db5524e2b39b1b97, type: 3}
+  - {fileID: 4002178268147058910, guid: b635cea4cdcfd8d47b77e11fc4d73979, type: 3}
+  - {fileID: 2961251844877538619, guid: c95c73d75986e4e4488e8cc6de3b9d02, type: 3}
   BossPrefabs: []
   SpawnerPosition: {fileID: 0}
