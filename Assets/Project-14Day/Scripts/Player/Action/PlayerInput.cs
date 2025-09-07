@@ -24,6 +24,8 @@ public class PlayerInput : MonoBehaviour
 
     public void WeaponRotate(Transform Weapon)
     {
+        print(_playerAttackJoystick.Horizontal);
+
         if (_playerAttackJoystick.Horizontal > 0 || _playerAttackJoystick.Horizontal < 0 || _playerAttackJoystick.Vertical > 0 || _playerAttackJoystick.Vertical < 0)
         {
             if (_playerAttackJoystick.Horizontal > 0)
@@ -49,26 +51,27 @@ public class PlayerInput : MonoBehaviour
 
     private void Flip(Transform player, Transform Weapon)
     {
-        if (_playerAttackJoystick.Horizontal > 0)
+        if (_playerAttackJoystick.Horizontal > 0f)
         {
             player.rotation = Quaternion.Euler(0, 0, 0);
+            return;
         }
-        else if (_playerAttackJoystick.Horizontal < 0)
+        else if (_playerAttackJoystick.Horizontal < -0f)
         {
             player.rotation = Quaternion.Euler(0, 180, 0);
+            return;
         }
-        else
+
+
+        if (_playerMovementJoystick.Horizontal > 0)
         {
-            if (_playerMovementJoystick.Horizontal > 0)
-            {
-                player.rotation = Quaternion.Euler(0, 0, 0);
-                Weapon.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            else if (_playerMovementJoystick.Horizontal < 0)
-            {
-                player.rotation = Quaternion.Euler(0, 180, 0);
-                Weapon.rotation = Quaternion.Euler(0, 180, 0);
-            }
+            player.rotation = Quaternion.Euler(0, 0, 0);
+            Weapon.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (_playerMovementJoystick.Horizontal < 0)
+        {
+            player.rotation = Quaternion.Euler(0, 180, 0);
+            Weapon.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 

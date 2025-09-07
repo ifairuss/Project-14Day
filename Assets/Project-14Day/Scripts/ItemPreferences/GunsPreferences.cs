@@ -13,8 +13,8 @@ public class GunsPreferences : ScriptableObject
 
     public float GunDamage;
     public float TimeToShoot;
+    public float TimeToReload;
 
-    public Sprite WeaponSprite;
     public GameObject Bullet;
 
     public Vector3 BulletSpawnPointPosition;

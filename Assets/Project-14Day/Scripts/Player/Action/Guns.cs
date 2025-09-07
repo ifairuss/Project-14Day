@@ -10,6 +10,7 @@ public class Guns : MonoBehaviour
     private int _maxAmmoInTheClip = 0;
 
     private float _timeToShoot;
+    private float _timeToReloadGun;
 
     private GameObject _bullet;
 
@@ -19,7 +20,6 @@ public class Guns : MonoBehaviour
     [Header("⚙️ Guns preferences")]
     [SerializeField] private List<GunsPreferences> _allGuns;
     [SerializeField] private Transform _point;
-    [SerializeField] private SpriteRenderer _weaponSprite;
     [Space]
     [SerializeField] private int _weaponId;
     [SerializeField] private float _timeToBtwShoot;
@@ -42,7 +42,7 @@ public class Guns : MonoBehaviour
         _maxAmmoInTheClip = _allGuns[_weaponId].MaxAmmoInTheClip;
         _timeToBtwShoot = _allGuns[_weaponId].TimeToShoot;
         _bullet = _allGuns[_weaponId].Bullet;
-        _weaponSprite.sprite = _allGuns[_weaponId].WeaponSprite;
+        _timeToReloadGun = _allGuns[_weaponId].TimeToReload;
 
         _point.localPosition = _allGuns[_weaponId].BulletSpawnPointPosition;
 
@@ -65,11 +65,15 @@ public class Guns : MonoBehaviour
                 _timeToShoot -= Time.deltaTime;
             }
         }
+        else
+        {
+            Reload();
+        }
     }
 
     public void Reload()
     {
-        if (_allAmmo > 0)
+        if (_allAmmo > 0 && _timeToReloadGun <= 0)
         {
             int needAddAmmo = _maxAmmoInTheClip - _ammoInTheClip;
 
@@ -84,6 +88,12 @@ public class Guns : MonoBehaviour
             }
 
             _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
+
+            _timeToReloadGun = _allGuns[_weaponId].TimeToReload;
+        }
+        else
+        {
+            _timeToReloadGun -= Time.deltaTime;
         }
     }
 
@@ -114,7 +124,6 @@ public class Guns : MonoBehaviour
             _maxAmmoInTheClip = _allGuns[_weaponId].MaxAmmoInTheClip;
             _timeToBtwShoot = _allGuns[_weaponId].TimeToShoot;
             _bullet = _allGuns[_weaponId].Bullet;
-            _weaponSprite.sprite = _allGuns[_weaponId].WeaponSprite;
 
             _point.localPosition = _allGuns[_weaponId].BulletSpawnPointPosition;
 
@@ -130,7 +139,6 @@ public class Guns : MonoBehaviour
             _maxAmmoInTheClip = _allGuns[_weaponId].MaxAmmoInTheClip;
             _timeToBtwShoot = _allGuns[_weaponId].TimeToShoot;
             _bullet = _allGuns[_weaponId].Bullet;
-            _weaponSprite.sprite = _allGuns[_weaponId].WeaponSprite;
 
             _point.localPosition = _allGuns[_weaponId].BulletSpawnPointPosition;
 
