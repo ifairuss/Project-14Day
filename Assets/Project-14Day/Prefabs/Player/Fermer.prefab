@@ -104,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3459570794395124568}
   m_Layer: 0
-  m_Name: MainSkin
+  m_Name: Fermer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
