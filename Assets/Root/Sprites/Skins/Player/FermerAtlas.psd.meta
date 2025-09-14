@@ -37,7 +37,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 0
+    spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 100
@@ -102,8 +102,8 @@ ScriptedImporter:
   layeredSpriteImportData:
   - name: Gun
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.057571564, y: 0.6212451}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -114,18 +114,95 @@ ScriptedImporter:
       height: 96
     spriteID: e36af26a3902e36448d1f81cb8b73096
     spriteBone: []
-    spriteOutline: []
+    spriteOutline:
+    - outline:
+      - {x: -158.5, y: -47}
+      - {x: -157.5, y: -46}
+      - {x: -117.5, y: -46}
+      - {x: -115.5, y: -45}
+      - {x: -114.5, y: -43}
+      - {x: -97.5, y: -43}
+      - {x: -96.5, y: -42}
+      - {x: -94.5, y: -42}
+      - {x: -92.5, y: -40}
+      - {x: -91.5, y: -40}
+      - {x: -84.5, y: -34}
+      - {x: -81.5, y: -27}
+      - {x: -81.5, y: -25}
+      - {x: -68.5, y: -25}
+      - {x: -67.5, y: -24}
+      - {x: -63.5, y: -23}
+      - {x: -57.5, y: -19}
+      - {x: -53.5, y: -11}
+      - {x: -15.5, y: -11}
+      - {x: -15.5, y: -19}
+      - {x: -12.5, y: -23}
+      - {x: -12.5, y: -24}
+      - {x: -9.5, y: -28}
+      - {x: -4.5, y: -30}
+      - {x: 18.5, y: -30}
+      - {x: 23.5, y: -28}
+      - {x: 26.5, y: -24}
+      - {x: 26.5, y: -23}
+      - {x: 29.5, y: -19}
+      - {x: 29.5, y: -7}
+      - {x: 221.5, y: -7}
+      - {x: 225.5, y: -4}
+      - {x: 225.5, y: 17}
+      - {x: 220.5, y: 22}
+      - {x: 29.5, y: 22}
+      - {x: 25.5, y: 25}
+      - {x: -0.5, y: 25}
+      - {x: -1.5, y: 26}
+      - {x: -77.5, y: 26}
+      - {x: -78.5, y: 25}
+      - {x: -86.5, y: 25}
+      - {x: -100.5, y: 32}
+      - {x: -102.5, y: 32}
+      - {x: -107.5, y: 35}
+      - {x: -109.5, y: 35}
+      - {x: -117.5, y: 39}
+      - {x: -119.5, y: 39}
+      - {x: -120.5, y: 40}
+      - {x: -125.5, y: 41}
+      - {x: -128.5, y: 43}
+      - {x: -131.5, y: 43}
+      - {x: -132.5, y: 44}
+      - {x: -134.5, y: 44}
+      - {x: -138.5, y: 46}
+      - {x: -145.5, y: 47}
+      - {x: -146.5, y: 48}
+      - {x: -174.5, y: 48}
+      - {x: -175.5, y: 47}
+      - {x: -175.5, y: 40}
+      - {x: -180.5, y: 44}
+      - {x: -181.5, y: 44}
+      - {x: -182.5, y: 46}
+      - {x: -187.5, y: 48}
+      - {x: -209.5, y: 48}
+      - {x: -216.5, y: 45}
+      - {x: -222.5, y: 39}
+      - {x: -225.5, y: 32}
+      - {x: -225.5, y: -34}
+      - {x: -223.5, y: -36}
+      - {x: -223.5, y: -37}
+      - {x: -218.5, y: -43}
+      - {x: -211.5, y: -46}
+      - {x: -175.5, y: -46}
+      - {x: -175.5, y: -47}
+      - {x: -174.5, y: -48}
+      - {x: -166.5, y: -48}
     vertices: []
     spritePhysicsOutline: []
     indices: 
     edges: []
-    tessellationDetail: 0
+    tessellationDetail: 1
     uvTransform: {x: 4, y: 379}
     spritePosition: {x: 19, y: 166}
   - name: HeadSet
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -1540,8 +1617,8 @@ ScriptedImporter:
     spritePosition: {x: 81, y: 0}
   - name: Body
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.50000006, y: 0.006146013}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -2623,9 +2700,9 @@ ScriptedImporter:
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
   mosaicLayers: 1
-  characterMode: 0
+  characterMode: 1
   documentPivot: {x: 0.31081083, y: 0.014888274}
-  documentAlignment: 9
+  documentAlignment: 7
   importHiddenLayers: 1
   layerMappingOption: 2
   generatePhysicsShape: 0
@@ -2735,4 +2812,6 @@ ScriptedImporter:
   prefabAssetName: 
   spriteLibAssetName: 
   skeletonAssetName: 
-  secondarySpriteTextures: []
+  secondarySpriteTextures:
+  - name: HeadSet
+    texture: {fileID: -8328923581568760697, guid: baf588422b194604bb3d34705ed676be, type: 3}
