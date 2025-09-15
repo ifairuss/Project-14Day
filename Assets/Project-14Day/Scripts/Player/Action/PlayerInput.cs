@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Button _buttonShoot;
     [SerializeField] private Button _buttonReload;
 
-    public Vector2 PlayerMovementInput(Transform Weapon, Transform player)
+    public Vector2 PlayerMovementInput(Transform Weapon, Transform player, AnimationManager playerAnimation)
     {
         float directionX = _playerMovementJoystick.Horizontal;
         float directionY = _playerMovementJoystick.Vertical;
@@ -18,6 +18,8 @@ public class PlayerInput : MonoBehaviour
         Flip(player, Weapon);
 
         Vector2 moveDirection = new Vector2(directionX, directionY);
+
+        playerAnimation.PlayerMoveAnimation(directionX, directionY);
 
         return moveDirection;
     } 
