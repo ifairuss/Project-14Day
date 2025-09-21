@@ -91,9 +91,9 @@ public class PlayerControllerManager : MonoBehaviour
     {
         if (other.CompareTag("Altar"))
         {
-            _buttonSpawner.gameObject.SetActive(true);
-
             EnemySpawner enemySpawner = other.GetComponent<EnemySpawner>();
+
+            enemySpawner.ButtonSpawner(_buttonSpawner);
 
             _buttonSpawner.EnemySpawnerPreferences = enemySpawner?.EnemyThisSpawnerPreferences;
             _buttonSpawner.AltarPosition = enemySpawner.transform.position;

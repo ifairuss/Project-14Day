@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -32,6 +33,7 @@ public class Guns : MonoBehaviour
 
         StartWeapon();
         _timeToShoot = _timeToBtwShoot;
+        _timeToReloadGun = _allGuns[_weaponId].TimeToReload;
     }
 
     private void StartWeapon()
@@ -71,10 +73,12 @@ public class Guns : MonoBehaviour
         }
     }
 
-    public void Reload()
+    public IEnumerator Reload()
     {
-        if (_allAmmo > 0 && _timeToReloadGun <= 0)
+        if (_allAmmo > 0)
         {
+            yield return new WaitForSeconds(_timeToReloadGun);
+
             int needAddAmmo = _maxAmmoInTheClip - _ammoInTheClip;
 
             if (_allAmmo >= needAddAmmo){ 
@@ -89,11 +93,7 @@ public class Guns : MonoBehaviour
 
             _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
 
-            _timeToReloadGun = _allGuns[_weaponId].TimeToReload;
-        }
-        else
-        {
-            _timeToReloadGun -= Time.deltaTime;
+            StopCoroutine(Reload());
         }
     }
 

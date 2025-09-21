@@ -7,7 +7,6 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Joystick _playerMovementJoystick;
     [SerializeField] private Joystick _playerAttackJoystick;
     [Space]
-    [SerializeField] private Button _buttonShoot;
     [SerializeField] private Button _buttonReload;
 
     public Vector2 PlayerMovementInput(Transform Weapon, Transform player, AnimationManager playerAnimation)
@@ -79,12 +78,8 @@ public class PlayerInput : MonoBehaviour
 
     public void AllButtonInit(Guns gun)
     {
-        _buttonShoot.onClick.AddListener(() => {
-            gun.GunSwitch();
-        });
-
         _buttonReload.onClick.AddListener(() => {
-            gun.Reload();
+            StartCoroutine(gun.Reload());
         });
     }
 }
