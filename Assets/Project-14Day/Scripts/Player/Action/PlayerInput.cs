@@ -46,7 +46,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (_playerAttackJoystick.Horizontal > 0.5f || _playerAttackJoystick.Vertical > 0.5f || _playerAttackJoystick.Horizontal < -0.5f || _playerAttackJoystick.Vertical < -0.5f)
         {
-            gun.Shoot();
+            gun.Shoot(_buttonReload);
         }
     }
 
@@ -79,7 +79,7 @@ public class PlayerInput : MonoBehaviour
     public void AllButtonInit(Guns gun)
     {
         _buttonReload.onClick.AddListener(() => {
-            StartCoroutine(gun.Reload());
+            StartCoroutine(gun.Reload(_buttonReload));
         });
     }
 }

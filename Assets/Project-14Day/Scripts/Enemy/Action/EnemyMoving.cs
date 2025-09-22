@@ -1,11 +1,16 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMoving : MonoBehaviour
 {
     public static EnemyMoving Instance { get; private set; }
 
     public bool IsMoving;
-    
+
+    public void Start()
+    {
+    }
+
 
     public void MoveToTarget(Transform target, float speed, float stopDistance)
     {
@@ -13,8 +18,6 @@ public class EnemyMoving : MonoBehaviour
 
         if (Vector2.Distance(transform.position, target.position) > stopDistance)
         {
-            Vector3 direction = (target.position - transform.position).normalized;
-            transform.position += direction * speed * Time.deltaTime;
 
             IsMoving = true;
         }

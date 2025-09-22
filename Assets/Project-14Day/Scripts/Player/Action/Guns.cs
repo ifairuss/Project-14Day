@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Guns : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class Guns : MonoBehaviour
         _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
     }
 
-    public void Shoot()
+    public void Shoot(Button reloadGun)
     {
         if (_ammoInTheClip > 0)
         {
@@ -61,22 +62,25 @@ public class Guns : MonoBehaviour
                 _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
                 _timeToShoot = _timeToBtwShoot;
                 Instantiate(_bullet, _point.position, transform.rotation);
+
+                if (_ammoInTheClip <= 0)
+                {
+                    StartCoroutine(Reload(reloadGun));
+                }
             }
             else
             {
                 _timeToShoot -= Time.deltaTime;
             }
         }
-        else
-        {
-            Reload();
-        }
     }
 
-    public IEnumerator Reload()
+    public IEnumerator Reload(Button reloadGun)
     {
-        if (_allAmmo > 0)
+        if (_allAmmo > 0 && _ammoInTheClip <= 0)
         {
+            reloadGun.gameObject.SetActive(false);
+
             yield return new WaitForSeconds(_timeToReloadGun);
 
             int needAddAmmo = _maxAmmoInTheClip - _ammoInTheClip;
@@ -93,7 +97,10 @@ public class Guns : MonoBehaviour
 
             _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
 
-            StopCoroutine(Reload());
+            yield return new WaitForSeconds(0.1f);
+            reloadGun.gameObject.SetActive(true);
+
+            StopCoroutine(Reload(reloadGun));
         }
     }
 
@@ -110,39 +117,5 @@ public class Guns : MonoBehaviour
         }
 
         _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
-    }
-
-    public void GunSwitch()
-    {
-        if (_weaponId < _allGuns.Count - 1)
-        {
-            _weaponId += 1;
-
-            _ammoInTheClip = _allGuns[_weaponId].AmmoInTheClip;
-            _allAmmo = _allGuns[_weaponId].AllAmmo;
-            _maxAmmo = _allGuns[_weaponId].MaxAmmo;
-            _maxAmmoInTheClip = _allGuns[_weaponId].MaxAmmoInTheClip;
-            _timeToBtwShoot = _allGuns[_weaponId].TimeToShoot;
-            _bullet = _allGuns[_weaponId].Bullet;
-
-            _point.localPosition = _allGuns[_weaponId].BulletSpawnPointPosition;
-
-            _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
-        }
-        else
-        {
-            _weaponId = 0;
-
-            _ammoInTheClip = _allGuns[_weaponId].AmmoInTheClip;
-            _allAmmo = _allGuns[_weaponId].AllAmmo;
-            _maxAmmo = _allGuns[_weaponId].MaxAmmo;
-            _maxAmmoInTheClip = _allGuns[_weaponId].MaxAmmoInTheClip;
-            _timeToBtwShoot = _allGuns[_weaponId].TimeToShoot;
-            _bullet = _allGuns[_weaponId].Bullet;
-
-            _point.localPosition = _allGuns[_weaponId].BulletSpawnPointPosition;
-
-            _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
-        }
     }
 }

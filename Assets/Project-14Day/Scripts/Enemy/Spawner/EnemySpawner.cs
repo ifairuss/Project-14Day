@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Spawner preferences")]
     [SerializeField] private float _spawnerReloadTime;
+    [SerializeField] private float _timeToEnemySpawned;
     [Space]
     public EnemySpawnerPreferences EnemyThisSpawnerPreferences;
     public List<Transform> EnemySpawnPoints;
@@ -19,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start() //тимчасово
     {
         _bossWave = EnemyThisSpawnerPreferences.BossSpawnWave;
+        _timeToEnemySpawned = EnemyThisSpawnerPreferences.TimeToEnemySpawned;
     }
 
     private void Update()
@@ -43,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
             else if (_waves != _bossWave)
             {
                 buttonSpawner.gameObject.SetActive(false);
-                SpawnNormalWave();
+                StartCoroutine(SpawnNormalWave());
             }
         }
     }
@@ -60,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void SpawnNormalWave()
+    private IEnumerator SpawnNormalWave()
     {
         int randomEnemyCount = Random.Range(EnemyThisSpawnerPreferences.MinEnemySpawn, EnemyThisSpawnerPreferences.MaxEnemySpawn);
 
@@ -74,9 +77,18 @@ public class EnemySpawner : MonoBehaviour
             enemy.transform.SetParent(transform);
 
             print($"{EnemyThisSpawnerPreferences.name}");
+
+            yield return new WaitForSeconds(_timeToEnemySpawned);
         }
 
         _waves += 1;
+        
+        if (_timeToEnemySpawned > EnemyThisSpawnerPreferences.MinEnemySpawn)
+        {
+            _timeToEnemySpawned -= 0.1f;
+        }
+
+        StopCoroutine(SpawnNormalWave());
     }
 
     private void SpawnBossWave()

@@ -18,6 +18,8 @@ MonoBehaviour:
   BossPrefabs: []
   SpawnerPosition: {fileID: 0}
   SpawnerReloadTime: 1
+  TimeToEnemySpawned: 3
   BossSpawnWave: 5
   MinEnemySpawn: 1
-  MaxEnemySpawn: 1
+  MaxEnemySpawn: 3
+  MinTimeToEnemySpawned: 1

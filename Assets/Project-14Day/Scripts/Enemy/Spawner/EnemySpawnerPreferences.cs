@@ -10,10 +10,13 @@ public class EnemySpawnerPreferences : ScriptableObject
 
     [Header("Spawner preferences")]
     public float SpawnerReloadTime;
+    public float TimeToEnemySpawned;
     public int BossSpawnWave;
 
     [Header("Spawner complication")]
     public int MinEnemySpawn;
     public int MaxEnemySpawn;
+    [Space]
+    public float MinTimeToEnemySpawned;
 
 }
