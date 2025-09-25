@@ -25,7 +25,7 @@ public class PlayerInput : MonoBehaviour
 
     public void WeaponRotate(Transform Weapon)
     {
-        print(_playerAttackJoystick.Horizontal);
+        print($"{_playerAttackJoystick.Horizontal} - Joystick debug");
 
         if (_playerAttackJoystick.Horizontal > 0 || _playerAttackJoystick.Horizontal < 0 || _playerAttackJoystick.Vertical > 0 || _playerAttackJoystick.Vertical < 0)
         {

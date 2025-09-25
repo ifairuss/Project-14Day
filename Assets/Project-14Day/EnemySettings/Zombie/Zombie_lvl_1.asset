@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 75
   Damage: 15
-  Speed: 1.1
+  Speed: 0.5
   AttackCooldown: 1
   DetectionRange: 10
   EnemyHPSliderDistanceFromHead: 0.7
