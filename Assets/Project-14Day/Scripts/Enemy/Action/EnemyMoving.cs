@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMoving : MonoBehaviour
@@ -7,10 +7,17 @@ public class EnemyMoving : MonoBehaviour
 
     public bool IsMoving;
 
-    [Header("RayPoint")]
-    [SerializeField] private List<Transform> _rayPointList;
-    [SerializeField] private List<Vector3> _rayPointDirection;
-    [SerializeField] private LayerMask _enemyBarrieLayerMask;
+    public GameObject rayTest;
+
+    public Transform RayUp;
+    public Transform RayDown;
+
+    public float up;
+    public float down;
+
+    public bool search;
+
+    Vector3 direction = Vector3.right.normalized;
 
     public void Start()
     {
@@ -19,29 +26,52 @@ public class EnemyMoving : MonoBehaviour
 
     public void MoveToTarget(Transform target, float speed, float stopDistance)
     {
-        for (int i = 0; i < _rayPointList.Count; i++)
+        if (target == null) return;
+
+        RaycastHit2D hit = Physics2D.Raycast(rayTest.transform.position, rayTest.transform.right, 0.5f);
+        RaycastHit2D hitUp = Physics2D.Raycast(RayUp.position, RayUp.right, 5f);
+        RaycastHit2D hitDown = Physics2D.Raycast(RayDown.position, RayDown.right, 5f);
+
+        Debug.DrawRay(rayTest.transform.position, rayTest.transform.right, Color.yellow , 0.5f);
+
+        if (hit.collider != null && search == false)
         {
-            RaycastHit2D hit = Physics2D.Raycast(_rayPointList[i].position, _rayPointDirection[i], 0.3f, _enemyBarrieLayerMask);
+            Debug.DrawRay(RayUp.position, RayUp.right, Color.red, 5);
+            Debug.DrawRay(RayDown.position, RayDown.right, Color.red, 5);
 
-            
-
-
-            if (hit.collider == null )
+            if (search == false)
             {
-                if (target == null) return;
-
-                if (Vector2.Distance(transform.position, target.position) > stopDistance)
+                if (hitUp.collider != null)
                 {
-                    Vector3 direction = (target.position - transform.position).normalized;
-                    transform.position += direction * speed * Time.deltaTime;
+                    RayUp.rotation = Quaternion.Euler(0, 0, up);
 
-                    IsMoving = true;
+                    up += 50f * Time.deltaTime;
                 }
                 else
                 {
-                    IsMoving = false;
+                    search = true;
+                    direction = Vector3.up.normalized;
                 }
             }
+
+            if (search == false)
+            {
+                if (hitDown.collider != null)
+                {
+                    RayDown.rotation = Quaternion.Euler(0, 0, down);
+
+                    down -= 50f * Time.deltaTime;
+                }
+                else
+                {
+                    search = true;
+                    direction = Vector3.down.normalized;
+                }
+            }
+        }
+        else
+        {
+            transform.position += direction * speed * Time.deltaTime; ;
         }
 
         if (target.position.x > transform.position.x)
