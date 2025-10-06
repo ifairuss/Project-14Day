@@ -7,9 +7,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private EnemyPreferences _enemyPreferences;
 
     private float _enemySpeed;
-    private float _enemyAttackRange;
     private float _enemyAttackCooldown;
-    private float _enemyDetectionRange;
     private float _enemyHPSliderDistanceFromHead;
     private float _enemyStopDistanceForPlayer;
 
@@ -22,8 +20,6 @@ public class EnemyManager : MonoBehaviour
 
     private Transform _healthBarCanvas;
 
-    private CircleCollider2D _enemyDetectionRangeCollider;
-
     private void Start()
     {
         InitializedEnemy();
@@ -34,7 +30,6 @@ public class EnemyManager : MonoBehaviour
         _enemyMoving = GetComponent<EnemyMoving>();
         _enemyHealthSlider = GetComponentInChildren<Slider>();
         _healthBarCanvas = GameObject.Find("HealthBarCanvas").transform;
-        _enemyDetectionRangeCollider = GetComponentInChildren<CircleCollider2D>();
 
         EnemySetSettings();
         SliderPreset();
@@ -74,14 +69,11 @@ public class EnemyManager : MonoBehaviour
     {
         _enemySpeed = _enemyPreferences.Speed;
         _enemyAttackCooldown = _enemyPreferences.AttackCooldown;
-        _enemyDetectionRange = _enemyPreferences.DetectionRange;
         _enemyHPSliderDistanceFromHead = _enemyPreferences.EnemyHPSliderDistanceFromHead;
         _enemyStopDistanceForPlayer = _enemyPreferences.EnemyStopDistanceForPlayer;
 
         _enemyHealth = _enemyPreferences.Health;
         _enemyDamage = _enemyPreferences.Damage;
-
-        _enemyDetectionRangeCollider.radius = _enemyAttackRange;
 
     }
 
@@ -121,5 +113,5 @@ public class EnemyManager : MonoBehaviour
 
             _enemyAttackCooldown = _enemyPreferences.AttackCooldown;
         }
-    }   
+    }
 }

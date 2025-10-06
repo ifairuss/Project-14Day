@@ -8,7 +8,6 @@ public class EnemyPreferences : ScriptableObject
 
     public float Speed;
     public float AttackCooldown;
-    public float DetectionRange;
     public float EnemyHPSliderDistanceFromHead;
     public float EnemyStopDistanceForPlayer;
 

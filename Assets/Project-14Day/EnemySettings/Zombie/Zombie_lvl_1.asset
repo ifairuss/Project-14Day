@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 75
   Damage: 15
-  Speed: 0.5
+  Speed: 1
   AttackCooldown: 1
   DetectionRange: 10
-  EnemyHPSliderDistanceFromHead: 0.7
+  EnemyHPSliderDistanceFromHead: 1.4
   EnemyStopDistanceForPlayer: 1.15
   EnemyDrop:
   - {fileID: 7102698957492825075, guid: 115c18828b9d1644eb11e43d1a790d4f, type: 3}

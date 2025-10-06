@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMoving : MonoBehaviour
 {
@@ -7,20 +7,11 @@ public class EnemyMoving : MonoBehaviour
 
     public bool IsMoving;
 
-    public GameObject rayTest;
-
-    public Transform RayUp;
-    public Transform RayDown;
-
-    public float up;
-    public float down;
-
-    public bool search;
-
-    Vector3 direction = Vector3.right.normalized;
+    private NavMeshAgent _agent;
 
     public void Start()
     {
+        _agent = GetComponent<NavMeshAgent>();
     }
 
 
@@ -28,56 +19,27 @@ public class EnemyMoving : MonoBehaviour
     {
         if (target == null) return;
 
-        RaycastHit2D hit = Physics2D.Raycast(rayTest.transform.position, rayTest.transform.right, 0.5f);
-        RaycastHit2D hitUp = Physics2D.Raycast(RayUp.position, RayUp.right, 5f);
-        RaycastHit2D hitDown = Physics2D.Raycast(RayDown.position, RayDown.right, 5f);
+        _agent.SetDestination(target.position);
 
-        Debug.DrawRay(rayTest.transform.position, rayTest.transform.right, Color.yellow , 0.5f);
-
-        if (hit.collider != null && search == false)
+        if (Vector3.Distance(target.position, transform.position) <= stopDistance)
         {
-            Debug.DrawRay(RayUp.position, RayUp.right, Color.red, 5);
-            Debug.DrawRay(RayDown.position, RayDown.right, Color.red, 5);
-
-            if (search == false)
-            {
-                if (hitUp.collider != null)
-                {
-                    RayUp.rotation = Quaternion.Euler(0, 0, up);
-
-                    up += 50f * Time.deltaTime;
-                }
-                else
-                {
-                    search = true;
-                    direction = Vector3.up.normalized;
-                }
-            }
-
-            if (search == false)
-            {
-                if (hitDown.collider != null)
-                {
-                    RayDown.rotation = Quaternion.Euler(0, 0, down);
-
-                    down -= 50f * Time.deltaTime;
-                }
-                else
-                {
-                    search = true;
-                    direction = Vector3.down.normalized;
-                }
-            }
+            IsMoving = false;
         }
         else
         {
-            transform.position += direction * speed * Time.deltaTime; ;
+            IsMoving = true;
         }
 
+        Flip(target);
+    }
+
+    private void Flip(Transform target)
+    {
         if (target.position.x > transform.position.x)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
-        } else
+        }
+        else
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
