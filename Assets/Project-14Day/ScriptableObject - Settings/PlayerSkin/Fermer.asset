@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a79b49f0f543848b8575a3dc0cbebc, type: 3}
+  m_Name: Fermer
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSkinData
+  HatSprite: {fileID: -620180277585025843, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  BodySprite: {fileID: -6879511536600661731, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  LeftLegUpSprite: {fileID: 3487729193921631003, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  LeftLegDownSprite: {fileID: -3715407629227196319, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  RightLegUpSprite: {fileID: -8372212073641675052, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  RightLegDownSprite: {fileID: -1815263464311599312, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  LeftEyebrow: {fileID: -1597317879736481531, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  RightEyebrow: {fileID: 6933764358076333191, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
