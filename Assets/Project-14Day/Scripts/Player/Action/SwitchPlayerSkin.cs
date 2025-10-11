@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class SwitchPlayerSkin : MonoBehaviour
 {
+    [Header("All skin variable")]
     public List<GunsPreferences> WeaponId;
     public List<PlayerSkinData> SkinId;
 
+    [Header("All player skin components")]
+    [Space]
     public SpriteRenderer HatSprite;
     public SpriteRenderer BodySprite;
     public SpriteRenderer LeftLegUpSprite;
@@ -16,6 +19,7 @@ public class SwitchPlayerSkin : MonoBehaviour
     public SpriteRenderer RightEyebrow;
     public SpriteRenderer Weapon;
 
+    [Header("Skin ID")]
     [Space]
     public int SkinData;
 

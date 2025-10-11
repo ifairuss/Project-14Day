@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1b7d99cf2d2f2499050f1031bc92fe, type: 3}
   m_Name: Revolver
   m_EditorClassIdentifier: Assembly-CSharp::GunsPreferences
+  name: Revolver
   WeaponId: 1
   AmmoInTheClip: 1
   AllAmmo: 2

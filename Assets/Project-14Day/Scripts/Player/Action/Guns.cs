@@ -7,25 +7,21 @@ public class Guns : MonoBehaviour
 {
     public static Guns Instance;
 
+    [Header("⚙️ Guns preferences")]
+    [SerializeField] private Transform _point;
+    [SerializeField] private BoxCollider2D _boxColliderGunCollision;
+
     private int _allAmmo = 0;
     private int _ammoInTheClip = 0;
     private int _maxAmmo = 0;
     private int _maxAmmoInTheClip = 0;
 
     private float _timeToShoot;
+    private float _timeToBtwShoot;
     private float _timeToReloadGun;
 
     private GameObject _bullet;
-
     private TextMeshProUGUI _ammoCounterText;
-
-
-    [Header("⚙️ Guns preferences")]
-    [SerializeField] private Transform _point;
-    [SerializeField] private BoxCollider2D _boxColliderGunCollision;
-    [Space]
-    [SerializeField] private float _timeToBtwShoot;
-
     private SwitchPlayerSkin _skinData;
 
     private void Awake()
