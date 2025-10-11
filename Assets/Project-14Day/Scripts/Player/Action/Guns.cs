@@ -1,11 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Guns : MonoBehaviour
 {
+    public static Guns Instance;
+
     private int _allAmmo = 0;
     private int _ammoInTheClip = 0;
     private int _maxAmmo = 0;
@@ -20,34 +21,43 @@ public class Guns : MonoBehaviour
 
 
     [Header("⚙️ Guns preferences")]
-    [SerializeField] private List<GunsPreferences> _allGuns;
     [SerializeField] private Transform _point;
+    [SerializeField] private BoxCollider2D _boxColliderGunCollision;
     [Space]
-    [SerializeField] private int _weaponId;
     [SerializeField] private float _timeToBtwShoot;
 
+    private SwitchPlayerSkin _skinData;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
 
     public void Initialized()
     {
         _ammoCounterText = GameObject.FindWithTag("AmmoCounter").GetComponent<TextMeshProUGUI>();
+        _skinData = GetComponentInParent<SwitchPlayerSkin>();
+
 
         StartWeapon();
         _timeToShoot = _timeToBtwShoot;
-        _timeToReloadGun = _allGuns[_weaponId].TimeToReload;
+        _timeToReloadGun = _skinData.WeaponId[_skinData.SkinData].TimeToReload;
     }
 
     private void StartWeapon()
     {
-        _ammoInTheClip = _allGuns[_weaponId].AmmoInTheClip;
-        _allAmmo = _allGuns[_weaponId].AllAmmo;
-        _maxAmmo = _allGuns[_weaponId].MaxAmmo;
-        _maxAmmoInTheClip = _allGuns[_weaponId].MaxAmmoInTheClip;
-        _timeToBtwShoot = _allGuns[_weaponId].TimeToShoot;
-        _bullet = _allGuns[_weaponId].Bullet;
-        _timeToReloadGun = _allGuns[_weaponId].TimeToReload;
+        _ammoInTheClip = _skinData.WeaponId[_skinData.SkinData].AmmoInTheClip;
+        _allAmmo = _skinData.WeaponId[_skinData.SkinData].AllAmmo;
+        _maxAmmo = _skinData.WeaponId[_skinData.SkinData].MaxAmmo;
+        _maxAmmoInTheClip = _skinData.WeaponId[_skinData.SkinData].MaxAmmoInTheClip;
+        _timeToBtwShoot = _skinData.WeaponId[_skinData.SkinData].TimeToShoot;
+        _bullet = _skinData.WeaponId[_skinData.SkinData].Bullet;
+        _timeToReloadGun = _skinData.WeaponId[_skinData.SkinData].TimeToReload;
 
-        _point.localPosition = _allGuns[_weaponId].BulletSpawnPointPosition;
+        _point.localPosition = _skinData.WeaponId[_skinData.SkinData].BulletSpawnPointPosition;
+        _boxColliderGunCollision.offset = _skinData.WeaponId[_skinData.SkinData].GunCollisionOffset;
+        _boxColliderGunCollision.size = _skinData.WeaponId[_skinData.SkinData].GunCollisionSize;
 
         _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
     }
@@ -77,7 +87,7 @@ public class Guns : MonoBehaviour
 
     public IEnumerator Reload(Button reloadGun)
     {
-        if (_allAmmo > 0 && _ammoInTheClip <= 0)
+        if (_allAmmo > 0 && _ammoInTheClip < _skinData.WeaponId[_skinData.SkinData].MaxAmmoInTheClip)
         {
             reloadGun.gameObject.SetActive(false);
 

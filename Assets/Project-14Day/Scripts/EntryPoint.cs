@@ -4,10 +4,12 @@ public class EntryPoint: MonoBehaviour
 {
     private void Start()
     {
-        PlayerControllerManager.Instance.Initialized();
-
         CameraFollow.Instance.Initialized();
 
+        PlayerControllerManager.Instance.Initialized();
+
         FertilizerManager.Instance.Initialized();
+
+        Guns.Instance.Initialized();
     }
 }

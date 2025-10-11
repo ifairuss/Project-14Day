@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1b7d99cf2d2f2499050f1031bc92fe, type: 3}
   m_Name: Double-barreled gun
   m_EditorClassIdentifier: 
-  WeaponId: 1
+  WeaponId: 0
   AmmoInTheClip: 1
-  AllAmmo: 32
+  AllAmmo: 1
   MaxAmmo: 64
   MaxAmmoInTheClip: 1
   GunDamage: 40
   TimeToShoot: 0.5
   TimeToReload: 1
   Bullet: {fileID: 1087183643505389332, guid: a2a6fdde9c241f4409851eb59926d082, type: 3}
-  BulletSpawnPointPosition: {x: 3.179, y: 0.059, z: 0}
+  GunSprite: {fileID: 2359476106297008794, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  BulletSpawnPointPosition: {x: 2.045, y: -0.057, z: 0}
+  GunCollisionOffset: {x: 0.9591851, y: -0.01039781}
+  GunCollisionSize: {x: 2.128658, y: 0.4936111}

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Gun", menuName = "Add new item/New Gun", order = 0)]
 public class GunsPreferences : ScriptableObject
@@ -16,6 +15,9 @@ public class GunsPreferences : ScriptableObject
     public float TimeToReload;
 
     public GameObject Bullet;
+    public Sprite GunSprite;
 
     public Vector3 BulletSpawnPointPosition;
+    public Vector2 GunCollisionOffset;
+    public Vector2 GunCollisionSize;
 }

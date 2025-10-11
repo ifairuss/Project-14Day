@@ -385,7 +385,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f71ffff6b25324bbac7ad817afdd3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchPlayerSkin
-  skinData: {fileID: 11400000, guid: 8d02ccc5929514c40a3f36fac73ab915, type: 2}
+  WeaponId:
+  - {fileID: 11400000, guid: 1d04679540779d443a49a9ab1e258d5e, type: 2}
+  - {fileID: 11400000, guid: a773b0ac170503a49a1a34def0d73459, type: 2}
+  SkinId:
+  - {fileID: 11400000, guid: d2db53a4987f845489a39419c514ee7a, type: 2}
+  - {fileID: 11400000, guid: 8d02ccc5929514c40a3f36fac73ab915, type: 2}
   HatSprite: {fileID: 1120356464}
   BodySprite: {fileID: 225357537}
   LeftLegUpSprite: {fileID: 1483090499}
@@ -394,6 +399,8 @@ MonoBehaviour:
   RightLegDownSprite: {fileID: 1092688445}
   LeftEyebrow: {fileID: 705929369}
   RightEyebrow: {fileID: 1131332454}
+  Weapon: {fileID: 1230666056}
+  SkinData: 0
 --- !u!1001 &159789568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1863,10 +1870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b04ebce0764624e965edf8f7aa65c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _allGuns:
-  - {fileID: 11400000, guid: 1d04679540779d443a49a9ab1e258d5e, type: 2}
   _point: {fileID: 662360366}
-  _weaponId: 0
+  _boxColliderGunCollision: {fileID: 1230666057}
   _timeToBtwShoot: 0
 --- !u!1 &443641921
 GameObject:
@@ -1883,7 +1888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &443641922
 Transform:
   m_ObjectHideFlags: 0
@@ -2515,7 +2520,7 @@ Transform:
   m_GameObject: {fileID: 662360365}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.045, y: -0.057, z: 0}
+  m_LocalPosition: {x: 1.082, y: -0.036, z: 0}
   m_LocalScale: {x: 1.4, y: 1.3, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3984,7 +3989,7 @@ GameObject:
   - component: {fileID: 1230666056}
   - component: {fileID: 1230666057}
   m_Layer: 7
-  m_Name: Double-barreled gun
+  m_Name: Gun-Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3999,7 +4004,7 @@ Transform:
   m_GameObject: {fileID: 1230666053}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.047, y: 0.063, z: 0}
+  m_LocalPosition: {x: -0.924, y: 0.131, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4062,7 +4067,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &1230666057
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4097,17 +4102,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0049933195, y: -0.010397807}
+  m_Offset: {x: 0.48244977, y: -0.06998974}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.061681066, y: 0.6350835}
     oldSize: {x: 2.18, y: 0.48}
     newSize: {x: 2.18, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.159055, y: 0.49361107}
+  m_Size: {x: 1.2630076, y: 0.4622469}
   m_EdgeRadius: 0
 --- !u!4 &1231201270 stripped
 Transform:

@@ -38,8 +38,6 @@ public class PlayerControllerManager : MonoBehaviour
 
         _playerRigidbody = GetComponent<Rigidbody2D>();
 
-        _playerGunsManager.Initialized();
-
         AllButtons();
 
         _playerHealth = _playerMaxHealth;

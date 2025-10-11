@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SwitchPlayerSkin : MonoBehaviour
 {
-    public PlayerSkinData skinData;
+    public List<GunsPreferences> WeaponId;
+    public List<PlayerSkinData> SkinId;
 
     public SpriteRenderer HatSprite;
     public SpriteRenderer BodySprite;
@@ -12,16 +14,21 @@ public class SwitchPlayerSkin : MonoBehaviour
     public SpriteRenderer RightLegDownSprite;
     public SpriteRenderer LeftEyebrow;
     public SpriteRenderer RightEyebrow;
+    public SpriteRenderer Weapon;
 
-    private void Update()
+    [Space]
+    public int SkinData;
+
+    private void Awake()
     {
-        HatSprite.sprite = skinData.HatSprite;
-        BodySprite.sprite = skinData.BodySprite;
-        LeftLegUpSprite.sprite = skinData.LeftLegUpSprite;
-        LeftLegDownSprite.sprite = skinData.LeftLegDownSprite;
-        RightLegUpSprite.sprite = skinData.RightLegUpSprite;
-        RightLegDownSprite.sprite = skinData.RightLegDownSprite;
-        LeftEyebrow.sprite = skinData.LeftEyebrow;
-        RightEyebrow.sprite= skinData.RightEyebrow;
+        HatSprite.sprite = SkinId[SkinData].HatSprite;
+        BodySprite.sprite = SkinId[SkinData].BodySprite;
+        LeftLegUpSprite.sprite = SkinId[SkinData].LeftLegUpSprite;
+        LeftLegDownSprite.sprite = SkinId[SkinData].LeftLegDownSprite;
+        RightLegUpSprite.sprite = SkinId[SkinData].RightLegUpSprite;
+        RightLegDownSprite.sprite = SkinId[SkinData].RightLegDownSprite;
+        LeftEyebrow.sprite = SkinId[SkinData].LeftEyebrow;
+        RightEyebrow.sprite = SkinId[SkinData].RightEyebrow;
+        Weapon.sprite = WeaponId[SkinData].GunSprite;
     }
 }
