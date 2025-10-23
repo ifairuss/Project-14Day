@@ -1,38 +1,70 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SwitchPlayerSkin : MonoBehaviour
 {
-    [Header("All skin variable")]
-    public List<GunsPreferences> WeaponId;
-    public List<PlayerSkinData> SkinId;
-
     [Header("All player skin components")]
     [Space]
-    public SpriteRenderer HatSprite;
-    public SpriteRenderer BodySprite;
-    public SpriteRenderer LeftLegUpSprite;
-    public SpriteRenderer LeftLegDownSprite;
-    public SpriteRenderer RightLegUpSprite;
-    public SpriteRenderer RightLegDownSprite;
-    public SpriteRenderer LeftEyebrow;
-    public SpriteRenderer RightEyebrow;
-    public SpriteRenderer Weapon;
+    [SerializeField] private SpriteRenderer _hatSprite;
+    [SerializeField] private SpriteRenderer _bodySprite;
+    [SerializeField] private SpriteRenderer _leftLegUpSprite;
+    [SerializeField] private SpriteRenderer _leftLegDownSprite;
+    [SerializeField] private SpriteRenderer _rightLegUpSprite;
+    [SerializeField] private SpriteRenderer _rightLegDownSprite;
+    [SerializeField] private SpriteRenderer _leftEyebrow;
+    [SerializeField] private SpriteRenderer _rightEyebrow;
+    [SerializeField] private SpriteRenderer _weapon;
 
-    [Header("Skin ID")]
-    [Space]
-    public int SkinData;
+    [Header("Need components")]
+    [SerializeField] private SkinManager _skinManager;
 
-    private void Awake()
+
+    private int _skinData;
+
+    private List<GunsPreferences> _weaponId;
+    private List<PlayerSkinData> _skinId;
+
+    private void Start()
     {
-        HatSprite.sprite = SkinId[SkinData].HatSprite;
-        BodySprite.sprite = SkinId[SkinData].BodySprite;
-        LeftLegUpSprite.sprite = SkinId[SkinData].LeftLegUpSprite;
-        LeftLegDownSprite.sprite = SkinId[SkinData].LeftLegDownSprite;
-        RightLegUpSprite.sprite = SkinId[SkinData].RightLegUpSprite;
-        RightLegDownSprite.sprite = SkinId[SkinData].RightLegDownSprite;
-        LeftEyebrow.sprite = SkinId[SkinData].LeftEyebrow;
-        RightEyebrow.sprite = SkinId[SkinData].RightEyebrow;
-        Weapon.sprite = WeaponId[SkinData].GunSprite;
+        _skinData = _skinManager.SkinData;
+
+        _weaponId = _skinManager.WeaponId;
+        _skinId = _skinManager.SkinId;
+
+        SpriteSwitch();
+    }
+
+    public void SwitchSkin()
+    {
+        if (_skinData < _skinId.Count - 1  && _skinData < _weaponId.Count - 1)
+        {
+            _skinData += 1;
+
+            SpriteSwitch();
+
+            _skinManager.SkinData = _skinData;
+        }
+        else
+        {
+            _skinData = 0;
+
+            SpriteSwitch();
+
+            _skinManager.SkinData = _skinData;
+        }
+    }
+
+    private void SpriteSwitch()
+    {
+        _hatSprite.sprite = _skinId[_skinData].HatSprite;
+        _bodySprite.sprite = _skinId[_skinData].BodySprite;
+        _leftLegUpSprite.sprite = _skinId[_skinData].LeftLegUpSprite;
+        _leftLegDownSprite.sprite = _skinId[_skinData].LeftLegDownSprite;
+        _rightLegUpSprite.sprite = _skinId[_skinData].RightLegUpSprite;
+        _rightLegDownSprite.sprite = _skinId[_skinData].RightLegDownSprite;
+        _leftEyebrow.sprite = _skinId[_skinData].LeftEyebrow;
+        _rightEyebrow.sprite = _skinId[_skinData].RightEyebrow;
+        _weapon.sprite = _weaponId[_skinData].GunSprite;
     }
 }

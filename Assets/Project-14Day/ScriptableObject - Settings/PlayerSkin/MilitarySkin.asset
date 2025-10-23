@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39a79b49f0f543848b8575a3dc0cbebc, type: 3}
-  m_Name: Fermer
+  m_Name: MilitarySkin
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSkinData
-  HatSprite: {fileID: -620180277585025843, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  HatSprite: {fileID: 7804307081458692351, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
   BodySprite: {fileID: -6879511536600661731, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  LeftLegUpSprite: {fileID: 3487729193921631003, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  LeftLegDownSprite: {fileID: -3715407629227196319, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  LeftLegUpSprite: {fileID: -7425245816980257102, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  LeftLegDownSprite: {fileID: 3918302377582245328, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
   RightLegUpSprite: {fileID: -8372212073641675052, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
   RightLegDownSprite: {fileID: -1815263464311599312, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  LeftEyebrow: {fileID: 5187577993599777618, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  RightEyebrow: {fileID: -413517364468298169, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  LeftEyebrow: {fileID: -1597317879736481531, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  RightEyebrow: {fileID: 6933764358076333191, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}

@@ -10,6 +10,7 @@ public class Guns : MonoBehaviour
     [Header("⚙️ Guns preferences")]
     [SerializeField] private Transform _point;
     [SerializeField] private BoxCollider2D _boxColliderGunCollision;
+    [SerializeField] private SkinManager _skinData;
 
     private int _allAmmo = 0;
     private int _ammoInTheClip = 0;
@@ -22,7 +23,6 @@ public class Guns : MonoBehaviour
 
     private GameObject _bullet;
     private TextMeshProUGUI _ammoCounterText;
-    private SwitchPlayerSkin _skinData;
 
     private void Awake()
     {
@@ -33,15 +33,13 @@ public class Guns : MonoBehaviour
     public void Initialized()
     {
         _ammoCounterText = GameObject.FindWithTag("AmmoCounter").GetComponent<TextMeshProUGUI>();
-        _skinData = GetComponentInParent<SwitchPlayerSkin>();
-
 
         StartWeapon();
         _timeToShoot = _timeToBtwShoot;
         _timeToReloadGun = _skinData.WeaponId[_skinData.SkinData].TimeToReload;
     }
 
-    private void StartWeapon()
+    public void StartWeapon()
     {
         _ammoInTheClip = _skinData.WeaponId[_skinData.SkinData].AmmoInTheClip;
         _allAmmo = _skinData.WeaponId[_skinData.SkinData].AllAmmo;
