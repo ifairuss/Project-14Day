@@ -16,6 +16,8 @@ public class CameraFollow : MonoBehaviour
     {
         _target = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
+        transform.position = new Vector3(_target.position.x, _target.position.y + 0.7f, -10);
+
         _offSet = _target.position - transform.position;
     }
 

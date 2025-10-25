@@ -11,6 +11,9 @@ public class Guns : MonoBehaviour
     [SerializeField] private Transform _point;
     [SerializeField] private BoxCollider2D _boxColliderGunCollision;
     [SerializeField] private SkinManager _skinData;
+    [Header("Hand properties")]
+    [SerializeField] private Transform _leftHand;
+    [SerializeField] private Transform _rightHand;
 
     private int _allAmmo = 0;
     private int _ammoInTheClip = 0;
@@ -41,6 +44,8 @@ public class Guns : MonoBehaviour
 
     public void StartWeapon()
     {
+        HandPosition();
+
         _ammoInTheClip = _skinData.WeaponId[_skinData.SkinData].AmmoInTheClip;
         _allAmmo = _skinData.WeaponId[_skinData.SkinData].AllAmmo;
         _maxAmmo = _skinData.WeaponId[_skinData.SkinData].MaxAmmo;
@@ -54,6 +59,25 @@ public class Guns : MonoBehaviour
         _boxColliderGunCollision.size = _skinData.WeaponId[_skinData.SkinData].GunCollisionSize;
 
         _ammoCounterText.text = $"{_ammoInTheClip}/{_allAmmo}";
+    }
+
+    private void HandPosition()
+    {
+        _leftHand.position = new Vector3(
+            _skinData.WeaponId[_skinData.SkinData].LeftHandPosition.x,
+            _skinData.WeaponId[_skinData.SkinData].LeftHandPosition.y);
+        _rightHand.position = new Vector3(
+            _skinData.WeaponId[_skinData.SkinData].RightHandPosition.x,
+            _skinData.WeaponId[_skinData.SkinData].RightHandPosition.y);
+
+        _rightHand.rotation = Quaternion.Euler(
+            _skinData.WeaponId[_skinData.SkinData].RightHandRotation.x,
+            _skinData.WeaponId[_skinData.SkinData].RightHandRotation.y,
+            _skinData.WeaponId[_skinData.SkinData].RightHandRotation.z);
+        _leftHand.rotation = Quaternion.Euler(
+            _skinData.WeaponId[_skinData.SkinData].LeftHandRotation.x,
+            _skinData.WeaponId[_skinData.SkinData].LeftHandRotation.y,
+            _skinData.WeaponId[_skinData.SkinData].LeftHandRotation.z);
     }
 
     public void Shoot(Button reloadGun)

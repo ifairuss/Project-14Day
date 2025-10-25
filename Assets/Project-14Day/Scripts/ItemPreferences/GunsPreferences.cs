@@ -18,6 +18,15 @@ public class GunsPreferences : ScriptableObject
     public Sprite GunSprite;
 
     public Vector3 BulletSpawnPointPosition;
+
+    [Header("Gun Settings")]
     public Vector2 GunCollisionOffset;
     public Vector2 GunCollisionSize;
+
+    [Space]
+    [Header("Hand Settings")]
+    public Vector2 LeftHandPosition;
+    public Vector2 RightHandPosition;
+    public Vector3 LeftHandRotation;
+    public Vector3 RightHandRotation;
 }

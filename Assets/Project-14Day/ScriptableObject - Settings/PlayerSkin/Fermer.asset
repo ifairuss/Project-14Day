@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a79b49f0f543848b8575a3dc0cbebc, type: 3}
   m_Name: Fermer
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSkinData
-  HatSprite: {fileID: -620180277585025843, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  BodySprite: {fileID: -6879511536600661731, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  LeftLegUpSprite: {fileID: 3487729193921631003, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  LeftLegDownSprite: {fileID: -3715407629227196319, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  RightLegUpSprite: {fileID: -8372212073641675052, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  RightLegDownSprite: {fileID: -1815263464311599312, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  LeftEyebrow: {fileID: 5187577993599777618, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
-  RightEyebrow: {fileID: -413517364468298169, guid: ba8dc500206a168449cab1804fa0a2ae, type: 3}
+  HeadSprite: {fileID: 4932422431240587352, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
+  BodyTopSprite: {fileID: 4690205545064515836, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
+  BodyRightSprite: {fileID: 8076925114773253890, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
+  BodyBottomSprite: {fileID: 1222290350385581841, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
+  LeftLegSprite: {fileID: -7661603411589810682, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
+  RightLegSprite: {fileID: -7661603411589810682, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
+  LeftHand: {fileID: -6103639511082816302, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
+  RightHand: {fileID: -6103639511082816302, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}

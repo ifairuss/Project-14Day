@@ -1,19 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class SwitchPlayerSkin : MonoBehaviour
 {
     [Header("All player skin components")]
     [Space]
-    [SerializeField] private SpriteRenderer _hatSprite;
+    [SerializeField] private SpriteRenderer _headSprite;
     [SerializeField] private SpriteRenderer _bodySprite;
-    [SerializeField] private SpriteRenderer _leftLegUpSprite;
-    [SerializeField] private SpriteRenderer _leftLegDownSprite;
-    [SerializeField] private SpriteRenderer _rightLegUpSprite;
-    [SerializeField] private SpriteRenderer _rightLegDownSprite;
-    [SerializeField] private SpriteRenderer _leftEyebrow;
-    [SerializeField] private SpriteRenderer _rightEyebrow;
+    [SerializeField] private SpriteRenderer _leftLegSprite;
+    [SerializeField] private SpriteRenderer _rightLegSprite;
+    [SerializeField] private SpriteRenderer _leftHand;
+    [SerializeField] private SpriteRenderer _rightHand;
     [SerializeField] private SpriteRenderer _weapon;
 
     [Header("Need components")]
@@ -57,14 +54,12 @@ public class SwitchPlayerSkin : MonoBehaviour
 
     private void SpriteSwitch()
     {
-        _hatSprite.sprite = _skinId[_skinData].HatSprite;
-        _bodySprite.sprite = _skinId[_skinData].BodySprite;
-        _leftLegUpSprite.sprite = _skinId[_skinData].LeftLegUpSprite;
-        _leftLegDownSprite.sprite = _skinId[_skinData].LeftLegDownSprite;
-        _rightLegUpSprite.sprite = _skinId[_skinData].RightLegUpSprite;
-        _rightLegDownSprite.sprite = _skinId[_skinData].RightLegDownSprite;
-        _leftEyebrow.sprite = _skinId[_skinData].LeftEyebrow;
-        _rightEyebrow.sprite = _skinId[_skinData].RightEyebrow;
+        _headSprite.sprite = _skinId[_skinData].HeadSprite;
+        _bodySprite.sprite = _skinId[_skinData].BodyBottomSprite;
+        _leftLegSprite.sprite = _skinId[_skinData].LeftLegSprite;
+        _rightLegSprite.sprite = _skinId[_skinData].RightLegSprite;
+        _leftHand.sprite = _skinId[_skinData].LeftHand;
+        _rightHand.sprite = _skinId[_skinData].RightHand;
         _weapon.sprite = _weaponId[_skinData].GunSprite;
     }
 }

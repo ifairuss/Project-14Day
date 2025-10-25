@@ -4,12 +4,12 @@ using UnityEngine;
 public class PlayerSkinData : ScriptableObject
 {
     [Header("Skin preferences")]
-    public Sprite HatSprite;
-    public Sprite BodySprite;
-    public Sprite LeftLegUpSprite;
-    public Sprite LeftLegDownSprite;
-    public Sprite RightLegUpSprite;
-    public Sprite RightLegDownSprite;
-    public Sprite LeftEyebrow;
-    public Sprite RightEyebrow;
+    public Sprite HeadSprite;
+    public Sprite BodyTopSprite;
+    public Sprite BodyRightSprite;
+    public Sprite BodyBottomSprite;
+    public Sprite LeftLegSprite;
+    public Sprite RightLegSprite;
+    public Sprite LeftHand;
+    public Sprite RightHand;
 }
