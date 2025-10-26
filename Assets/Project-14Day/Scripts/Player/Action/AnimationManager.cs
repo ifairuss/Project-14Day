@@ -11,13 +11,7 @@ public class AnimationManager : MonoBehaviour
 
     public void PlayerMoveAnimation(float directionX, float directionY)
     {
-        if (directionX != 0 || directionY != 0)
-        {
-            _playerAnimator.SetBool("isWalk", true);
-        }
-        else
-        {
-            _playerAnimator.SetBool("isWalk", false);
-        }
+        _playerAnimator.SetFloat("directionY", directionY);
+        _playerAnimator.SetFloat("directionX", directionX);
     }
 }

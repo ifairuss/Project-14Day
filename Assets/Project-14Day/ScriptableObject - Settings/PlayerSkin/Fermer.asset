@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a79b49f0f543848b8575a3dc0cbebc, type: 3}
   m_Name: Fermer
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSkinData
-  HeadSprite: {fileID: 4932422431240587352, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
+  HeadTopSprite: {fileID: -319875895987538282, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
+  HeadRightSprite: {fileID: -4491008862264383793, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
+  HeadBottomSprite: {fileID: 4932422431240587352, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
   BodyTopSprite: {fileID: 4690205545064515836, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
   BodyRightSprite: {fileID: 8076925114773253890, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}
   BodyBottomSprite: {fileID: 1222290350385581841, guid: 069fb17d1fcf23c4e9f972ce6fd622f9, type: 3}

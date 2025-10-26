@@ -54,7 +54,7 @@ public class SwitchPlayerSkin : MonoBehaviour
 
     private void SpriteSwitch()
     {
-        _headSprite.sprite = _skinId[_skinData].HeadSprite;
+        _headSprite.sprite = _skinId[_skinData].HeadBottomSprite;
         _bodySprite.sprite = _skinId[_skinData].BodyBottomSprite;
         _leftLegSprite.sprite = _skinId[_skinData].LeftLegSprite;
         _rightLegSprite.sprite = _skinId[_skinData].RightLegSprite;

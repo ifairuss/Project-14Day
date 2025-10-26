@@ -9,6 +9,14 @@ public class PlayerInput : MonoBehaviour
     [Space]
     [SerializeField] private Button _buttonReload;
 
+    [Header("Flip sprite")]
+    [SerializeField] private SkinManager _skinManager;
+    [SerializeField] private SpriteRenderer _body;
+    [SerializeField] private SpriteRenderer _head;
+    [SerializeField] private SpriteRenderer _gun;
+    [SerializeField] private SpriteRenderer _leftHand;
+    [SerializeField] private SpriteRenderer _rightHand;
+
     public Vector2 PlayerMovementInput(Transform Weapon, Transform player, AnimationManager playerAnimation)
     {
         float directionX = _playerMovementJoystick.Horizontal;
@@ -18,7 +26,7 @@ public class PlayerInput : MonoBehaviour
 
         Vector2 moveDirection = new Vector2(directionX, directionY);
 
-        playerAnimation.PlayerMoveAnimation(directionX, directionY);
+        playerAnimation.PlayerMoveAnimation(_playerMovementJoystick.Horizontal, _playerMovementJoystick.Vertical);
 
         return moveDirection;
     } 
@@ -33,12 +41,38 @@ public class PlayerInput : MonoBehaviour
             {
                 float weaponRotate = Mathf.Atan2(_playerAttackJoystick.Vertical, _playerAttackJoystick.Horizontal) * Mathf.Rad2Deg;
                 Weapon.rotation = Quaternion.Euler(0, 0, weaponRotate);
+
+                PlayerRotate(weaponRotate);
             }
             else if (_playerAttackJoystick.Horizontal < 0)
             {
                 float weaponRotate = Mathf.Atan2(_playerAttackJoystick.Vertical, -_playerAttackJoystick.Horizontal) * Mathf.Rad2Deg;
                 Weapon.rotation = Quaternion.Euler(0, 180, weaponRotate);
+
+                PlayerRotate(weaponRotate);
             }
+        }
+    }
+
+    private void PlayerRotate(float weaponRotate)
+    {
+        if (weaponRotate > 45 && weaponRotate < 90)
+        {
+            _body.sprite = _skinManager.SkinId[_skinManager.SkinData].BodyTopSprite;
+            _head.sprite = _skinManager.SkinId[_skinManager.SkinData].HeadTopSprite;
+            SwitchSortingOrderInGun(false);
+        }
+        else if (weaponRotate < -45 && weaponRotate > -90)
+        {
+            _body.sprite = _skinManager.SkinId[_skinManager.SkinData].BodyBottomSprite;
+            _head.sprite = _skinManager.SkinId[_skinManager.SkinData].HeadBottomSprite;
+            SwitchSortingOrderInGun(true);
+        }
+        else if (weaponRotate < 45 && weaponRotate > -45)
+        {
+            _body.sprite = _skinManager.SkinId[_skinManager.SkinData].BodyRightSprite;
+            _head.sprite = _skinManager.SkinId[_skinManager.SkinData].HeadRightSprite;
+            SwitchSortingOrderInGun(true);
         }
     }
 
@@ -52,27 +86,59 @@ public class PlayerInput : MonoBehaviour
 
     private void Flip(Transform player, Transform Weapon)
     {
-        if (_playerAttackJoystick.Horizontal > 0f)
+        if (_playerAttackJoystick.Horizontal > 0)
         {
             player.rotation = Quaternion.Euler(0, 0, 0);
             return;
         }
-        else if (_playerAttackJoystick.Horizontal < -0f)
+        else if (_playerAttackJoystick.Horizontal < 0)
         {
             player.rotation = Quaternion.Euler(0, 180, 0);
             return;
         }
 
 
-        if (_playerMovementJoystick.Horizontal > 0)
+        if (_playerMovementJoystick.Vertical > 0)
         {
-            player.rotation = Quaternion.Euler(0, 0, 0);
-            Weapon.rotation = Quaternion.Euler(0, 0, 0);
+            _body.sprite = _skinManager.SkinId[_skinManager.SkinData].BodyTopSprite;
+            _head.sprite = _skinManager.SkinId[_skinManager.SkinData].HeadTopSprite;
+            SwitchSortingOrderInGun(false);
         }
-        else if (_playerMovementJoystick.Horizontal < 0)
+        else if (_playerMovementJoystick.Vertical < 0)
         {
+            _body.sprite = _skinManager.SkinId[_skinManager.SkinData].BodyBottomSprite;
+            _head.sprite = _skinManager.SkinId[_skinManager.SkinData].HeadBottomSprite;
+            SwitchSortingOrderInGun(true);
+        } 
+
+
+        if (_playerMovementJoystick.Horizontal > 0 && _playerMovementJoystick.Vertical < 0.5 && _playerMovementJoystick.Vertical > -0.5)
+        {
+            _body.sprite = _skinManager.SkinId[_skinManager.SkinData].BodyRightSprite;
+            _head.sprite = _skinManager.SkinId[_skinManager.SkinData].HeadRightSprite;
+            player.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (_playerMovementJoystick.Horizontal < 0 && _playerMovementJoystick.Vertical > -0.5 && _playerMovementJoystick.Vertical < 0.5)
+        {
+            _body.sprite = _skinManager.SkinId[_skinManager.SkinData].BodyRightSprite;
+            _head.sprite = _skinManager.SkinId[_skinManager.SkinData].HeadRightSprite;
             player.rotation = Quaternion.Euler(0, 180, 0);
-            Weapon.rotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
+
+    private void SwitchSortingOrderInGun(bool Variables)
+    {
+        if (Variables == true)
+        {
+            _gun.sortingOrder = 9;
+            _leftHand.sortingOrder = 10;
+            _rightHand.sortingOrder = 10;
+        }
+        else
+        {
+            _gun.sortingOrder = -10;
+            _leftHand.sortingOrder = -9;
+            _rightHand.sortingOrder = -9;
         }
     }
 

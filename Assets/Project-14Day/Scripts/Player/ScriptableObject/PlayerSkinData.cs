@@ -4,7 +4,9 @@ using UnityEngine;
 public class PlayerSkinData : ScriptableObject
 {
     [Header("Skin preferences")]
-    public Sprite HeadSprite;
+    public Sprite HeadTopSprite;
+    public Sprite HeadRightSprite;
+    public Sprite HeadBottomSprite;
     public Sprite BodyTopSprite;
     public Sprite BodyRightSprite;
     public Sprite BodyBottomSprite;
