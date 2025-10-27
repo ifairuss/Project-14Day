@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5948aaf0703997c4d99127a388d5b330, type: 3}
   m_Name: Zombie_lvl_1
   m_EditorClassIdentifier: 
-  Health: 75
+  Health: 30
   Damage: 15
   Speed: 1
   AttackCooldown: 1
@@ -20,3 +20,4 @@ MonoBehaviour:
   EnemyStopDistanceForPlayer: 1.15
   EnemyDrop:
   - {fileID: 7102698957492825075, guid: 115c18828b9d1644eb11e43d1a790d4f, type: 3}
+  - {fileID: 6910596335174051177, guid: 63b67b54bb85b624db52242dc7bc84a1, type: 3}

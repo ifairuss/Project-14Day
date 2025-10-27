@@ -16,12 +16,17 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _waves;
     [SerializeField] private int _enemyCount;
 
+    [SerializeField] private int _minEnemyDebug;
+    [SerializeField] private int _maxEnemyDebug;
+
     private int _bossWave;
 
     private void Start() //тимчасово
     {
         _bossWave = EnemyThisSpawnerPreferences.BossSpawnWave;
         _timeToEnemySpawned = EnemyThisSpawnerPreferences.TimeToEnemySpawned;
+        _minEnemyDebug = EnemyThisSpawnerPreferences.MinEnemySpawn;
+        _maxEnemyDebug = EnemyThisSpawnerPreferences.MaxEnemySpawn;
     }
 
     private void Update()
@@ -65,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnNormalWave()
     {
-        int randomEnemyCount = Random.Range(EnemyThisSpawnerPreferences.MinEnemySpawn, EnemyThisSpawnerPreferences.MaxEnemySpawn);
+        int randomEnemyCount = Random.Range(_minEnemyDebug, _maxEnemyDebug);
 
         for (int i = 0; i < randomEnemyCount; i++)
         {
@@ -82,7 +87,10 @@ public class EnemySpawner : MonoBehaviour
         }
 
         _waves += 1;
-        
+        _minEnemyDebug += 1;
+        _maxEnemyDebug += 2;
+
+
         if (_timeToEnemySpawned > EnemyThisSpawnerPreferences.MinEnemySpawn)
         {
             _timeToEnemySpawned -= 0.1f;
@@ -96,5 +104,7 @@ public class EnemySpawner : MonoBehaviour
         print($"Boss Spawned");
         _bossWave = _bossWave += EnemyThisSpawnerPreferences.BossSpawnWave;
         _waves += 1;
+        _minEnemyDebug += 1;
+        _maxEnemyDebug += 2;
     }
 }

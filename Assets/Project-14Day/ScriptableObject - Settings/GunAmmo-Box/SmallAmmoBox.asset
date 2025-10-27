@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8e1871677f06f43b99e1abcfba7eef, type: 3}
   m_Name: SmallAmmoBox
   m_EditorClassIdentifier: 
-  AmmoCount: 10
+  AmmoCount: 3

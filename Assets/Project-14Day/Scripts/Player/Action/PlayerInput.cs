@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -112,17 +113,19 @@ public class PlayerInput : MonoBehaviour
         } 
 
 
-        if (_playerMovementJoystick.Horizontal > 0 && _playerMovementJoystick.Vertical < 0.5 && _playerMovementJoystick.Vertical > -0.5)
+        if (_playerMovementJoystick.Horizontal > 0 && _playerMovementJoystick.Vertical < 0.75 && _playerMovementJoystick.Vertical > -0.75)
         {
             _body.sprite = _skinManager.SkinId[_skinManager.SkinData].BodyRightSprite;
             _head.sprite = _skinManager.SkinId[_skinManager.SkinData].HeadRightSprite;
             player.rotation = Quaternion.Euler(0, 0, 0);
+            SwitchSortingOrderInGun(true);
         }
-        else if (_playerMovementJoystick.Horizontal < 0 && _playerMovementJoystick.Vertical > -0.5 && _playerMovementJoystick.Vertical < 0.5)
+        else if (_playerMovementJoystick.Horizontal < 0 && _playerMovementJoystick.Vertical > -0.75 && _playerMovementJoystick.Vertical < 0.75)
         {
             _body.sprite = _skinManager.SkinId[_skinManager.SkinData].BodyRightSprite;
             _head.sprite = _skinManager.SkinId[_skinManager.SkinData].HeadRightSprite;
             player.rotation = Quaternion.Euler(0, 180, 0);
+            SwitchSortingOrderInGun(true);
         }
     }
 

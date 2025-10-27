@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
     private float _enemySpeed;
     private float _enemyAttackCooldown;
     private float _enemyHPSliderDistanceFromHead;
-    private float _enemyStopDistanceForPlayer;
+   // private float _enemyStopDistanceForPlayer;
 
     private int _enemyHealth;
     private int _enemyDamage;
@@ -61,7 +61,7 @@ public class EnemyManager : MonoBehaviour
 
     private void EnemyControllers()
     {
-        _enemyMoving.MoveToTarget(PlayerControllerManager.Instance.transform, _enemySpeed, _enemyStopDistanceForPlayer);
+        _enemyMoving.MoveToTarget(PlayerControllerManager.Instance.transform, _enemySpeed);
         _enemyHealthSlider.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, _enemyHPSliderDistanceFromHead, 0));
     }
 
@@ -70,7 +70,7 @@ public class EnemyManager : MonoBehaviour
         _enemySpeed = _enemyPreferences.Speed;
         _enemyAttackCooldown = _enemyPreferences.AttackCooldown;
         _enemyHPSliderDistanceFromHead = _enemyPreferences.EnemyHPSliderDistanceFromHead;
-        _enemyStopDistanceForPlayer = _enemyPreferences.EnemyStopDistanceForPlayer;
+      //  _enemyStopDistanceForPlayer = _enemyPreferences.EnemyStopDistanceForPlayer;
 
         _enemyHealth = _enemyPreferences.Health;
         _enemyDamage = _enemyPreferences.Damage;
@@ -86,8 +86,11 @@ public class EnemyManager : MonoBehaviour
                 Instantiate(_enemyPreferences.EnemyDrop[Random.Range(0, _enemyPreferences.EnemyDrop.Length)], transform.position, Quaternion.identity);
             }
 
+            EnemyCounterDead.Instance.AddCountedDead();
+
             Destroy(_enemyHealthSlider.gameObject);
             Destroy(gameObject);
+            
             Debug.Log($"{gameObject.name} - Enemy is dead");
         }
     }

@@ -15,13 +15,13 @@ public class EnemyMoving : MonoBehaviour
     }
 
 
-    public void MoveToTarget(Transform target, float speed, float stopDistance)
+    public void MoveToTarget(Transform target, float speed)
     {
         if (target == null) return;
 
         _agent.SetDestination(target.position);
 
-        if (Vector3.Distance(target.position, transform.position) <= stopDistance)
+        if (Vector3.Distance(target.position, transform.position) <= (_agent.stoppingDistance + 0.2f))
         {
             IsMoving = false;
         }

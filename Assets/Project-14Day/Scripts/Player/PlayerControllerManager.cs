@@ -58,6 +58,7 @@ public class PlayerControllerManager : MonoBehaviour
 
             transform.position = _playerSpawnPoint.position;
             _playerHealth = _playerMaxHealth;
+            EnemyCounterDead.Instance.RemoveCountedDead();
             FertilizerManager.Instance.RemoveMoney(10);
         }
     }
@@ -83,6 +84,8 @@ public class PlayerControllerManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _playerHealth -= damage;
+
+        Debug.Log($"Player health {_playerHealth}");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
