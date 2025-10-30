@@ -99,9 +99,12 @@ public class EnemySpawner : MonoBehaviour
         StopCoroutine(SpawnNormalWave());
     }
 
-    private void SpawnBossWave()
+    private IEnumerator SpawnBossWave()
     {
         print($"Boss Spawned");
+
+        yield return new WaitForSeconds(1);
+
         _bossWave = _bossWave += EnemyThisSpawnerPreferences.BossSpawnWave;
         _waves += 1;
         _minEnemyDebug += 1;
