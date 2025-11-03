@@ -14,8 +14,11 @@ public class EnemySpawnerPreferences : ScriptableObject
     public int BossSpawnWave;
 
     [Header("Spawner complication")]
-    public int MinEnemySpawn;
-    public int MaxEnemySpawn;
+    public int MinEnemySpawnToStart;
+    public int MaxEnemySpawnToStart;
+    [Space]
+    public int MinEnemy;
+    public int MaxEnemy;
     [Space]
     public float MinTimeToEnemySpawned;
 
