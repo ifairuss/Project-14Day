@@ -3810,6 +3810,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1361522648}
     m_Modifications:
+    - target: {fileID: 1219792860358831651, guid: 6046d04385f0aee42a163baf596c53a8, type: 3}
+      propertyPath: m_IgnoreReversedGraphics
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2296720933151873728, guid: 6046d04385f0aee42a163baf596c53a8, type: 3}
       propertyPath: m_Name
       value: Altar
@@ -3822,6 +3826,10 @@ PrefabInstance:
       propertyPath: _waveText
       value: 
       objectReference: {fileID: 1997028931}
+    - target: {fileID: 4132648983549504811, guid: 6046d04385f0aee42a163baf596c53a8, type: 3}
+      propertyPath: _timerText
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4132648983549504811, guid: 6046d04385f0aee42a163baf596c53a8, type: 3}
       propertyPath: EnemySpawnPoints.Array.size
       value: 11
@@ -3963,7 +3971,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2970273504229531648, guid: 6046d04385f0aee42a163baf596c53a8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6046d04385f0aee42a163baf596c53a8, type: 3}
@@ -7149,11 +7158,11 @@ RectTransform:
   - {fileID: 1355480779}
   m_Father: {fileID: 1997028930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 500}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 700, y: 145.0838}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &751514849
 GameObject:
   m_ObjectHideFlags: 0
@@ -7436,8 +7445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 0}
+  m_AnchoredPosition: {x: 0, y: 2.5}
+  m_SizeDelta: {x: 0, y: 4.9999948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &776989386
 MonoBehaviour:
@@ -7452,15 +7461,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8156863}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12033,8 +12042,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 160
-  m_fontSizeBase: 160
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15970,6 +15979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1997028930}
   - component: {fileID: 1997028931}
+  - component: {fileID: 1997028932}
   m_Layer: 5
   m_Name: SplashText
   m_TagString: Untagged
@@ -16009,8 +16019,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a0dd4f4073e584b96c0b1d266796e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplashText
-  _splashImageBG: {fileID: 776989386}
-  _splashText: {fileID: 1355480780}
+  _waveText: {fileID: 1355480780}
+  _splashPanel: {fileID: 744803136}
+--- !u!95 &1997028932
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997028929}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 592ad19ee4efee643b1b2879a2ce6479, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2001923403
 PrefabInstance:
   m_ObjectHideFlags: 0

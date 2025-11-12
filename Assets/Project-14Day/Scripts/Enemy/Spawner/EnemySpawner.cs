@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -12,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     public List<Transform> EnemySpawnPoints;
 
     [SerializeField] private SplashText _waveText;
+    //[SerializeField] private TextMeshProUGUI _timerText;
 
     [Space]
     [Header("Spawner data")]
@@ -22,7 +24,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _maxEnemySpawnInWaves;
 
     private int _maxEnemy;
-    private int _minEnemy;
     private int _bossWave;
 
     private void Start() //тимчасово
@@ -31,6 +32,7 @@ public class EnemySpawner : MonoBehaviour
         _timeToEnemySpawned = EnemyThisSpawnerPreferences.TimeToEnemySpawned;
         _minEnemySpawnInWaves = EnemyThisSpawnerPreferences.MinEnemySpawnToStart;
         _maxEnemySpawnInWaves = EnemyThisSpawnerPreferences.MaxEnemySpawnToStart;
+        _maxEnemy = EnemyThisSpawnerPreferences.MaxEnemy;
     }
 
     private void Update()
@@ -40,6 +42,7 @@ public class EnemySpawner : MonoBehaviour
         if (_enemyCount <= 0 && _spawnerReloadTime > 0)
         {
             _spawnerReloadTime -= 0.1f * Time.deltaTime;
+            //_timerText.text = _spawnerReloadTime.ToString();
         }
     }
 
@@ -52,15 +55,16 @@ public class EnemySpawner : MonoBehaviour
     {
         if (_enemyCount <= 0)
         {
-
             if (_waves == _bossWave)
             {
                 buttonSpawner.gameObject.SetActive(false);
-                SpawnBossWave();
+                _waveText.OpenSplashPanel($"Boss Wave");
+                StartCoroutine(SpawnBossWave());
             }
             else if (_waves != _bossWave)
             {
                 buttonSpawner.gameObject.SetActive(false);
+                _waveText.OpenSplashPanel($"Wave {_waves}");
                 StartCoroutine(SpawnNormalWave());
             }
         }
@@ -80,6 +84,8 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnNormalWave()
     {
+        print($"Wave - {_waves}");
+
         int randomEnemyCount = Random.Range(_minEnemySpawnInWaves, _maxEnemySpawnInWaves);
 
             for (int i = 0; i < randomEnemyCount; i++)
@@ -97,8 +103,12 @@ public class EnemySpawner : MonoBehaviour
             }
 
             _waves += 1;
-            _minEnemySpawnInWaves += 1;
-            _maxEnemySpawnInWaves += 2;
+
+         if (_maxEnemy < _maxEnemySpawnInWaves)
+         {
+             _minEnemySpawnInWaves += 1;
+             _maxEnemySpawnInWaves += 2;
+         }
             _spawnerReloadTime = EnemyThisSpawnerPreferences.SpawnerReloadTime;
 
         StopCoroutine(SpawnNormalWave());
@@ -106,13 +116,16 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnBossWave()
     {
-        print($"Boss Spawned");
+        print($"Boss - Wave");
 
         yield return new WaitForSeconds(1);
 
         _bossWave = _bossWave += EnemyThisSpawnerPreferences.BossSpawnWave;
         _waves += 1;
-        _minEnemySpawnInWaves += 1;
-        _maxEnemySpawnInWaves += 2;
+        if (_maxEnemy < _maxEnemySpawnInWaves)
+        {
+            _minEnemySpawnInWaves += 1;
+            _maxEnemySpawnInWaves += 2;
+        }
     }
 }

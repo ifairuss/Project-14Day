@@ -17,7 +17,6 @@ public class EnemySpawnerPreferences : ScriptableObject
     public int MinEnemySpawnToStart;
     public int MaxEnemySpawnToStart;
     [Space]
-    public int MinEnemy;
     public int MaxEnemy;
     [Space]
     public float MinTimeToEnemySpawned;

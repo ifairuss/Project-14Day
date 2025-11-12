@@ -19,6 +19,8 @@ MonoBehaviour:
   SpawnerReloadTime: 1
   TimeToEnemySpawned: 3
   BossSpawnWave: 5
-  MinEnemySpawn: 2
-  MaxEnemySpawn: 7
+  MinEnemySpawnToStart: 2
+  MaxEnemySpawnToStart: 4
+  MinEnemy: 0
+  MaxEnemy: 32
   MinTimeToEnemySpawned: 1
