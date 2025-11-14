@@ -104,7 +104,7 @@ public class EnemySpawner : MonoBehaviour
 
             _waves += 1;
 
-         if (_maxEnemy < _maxEnemySpawnInWaves)
+         if (_maxEnemy > _maxEnemySpawnInWaves)
          {
              _minEnemySpawnInWaves += 1;
              _maxEnemySpawnInWaves += 2;
@@ -122,7 +122,7 @@ public class EnemySpawner : MonoBehaviour
 
         _bossWave = _bossWave += EnemyThisSpawnerPreferences.BossSpawnWave;
         _waves += 1;
-        if (_maxEnemy < _maxEnemySpawnInWaves)
+        if (_maxEnemy > _maxEnemySpawnInWaves)
         {
             _minEnemySpawnInWaves += 1;
             _maxEnemySpawnInWaves += 2;
