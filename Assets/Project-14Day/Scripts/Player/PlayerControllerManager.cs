@@ -23,6 +23,7 @@ public class PlayerControllerManager : MonoBehaviour
     private CameraFollow _playerCamera;
     private Guns _playerGunsManager;
     private AnimationManager _playerAnimationManager;
+    private HP_System _playerHealthBar;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class PlayerControllerManager : MonoBehaviour
     public void Initialized()
     {
         _playerInput = GameObject.FindWithTag("PlayerInterface").GetComponent<PlayerInput>();
+        _playerHealthBar = GameObject.FindWithTag("PlayerInterface").GetComponentInChildren<HP_System>();
         _playerCamera = GameObject.FindWithTag("MainCamera").GetComponent<CameraFollow>();
         _playerGunsManager = GameObject.FindWithTag("WeponsManager").GetComponent<Guns>();
         _playerAnimationManager = GetComponent<AnimationManager>();
@@ -48,6 +50,8 @@ public class PlayerControllerManager : MonoBehaviour
         AllController();
 
         GameOver();
+
+        StartCoroutine(_playerHealthBar.HealthSystems(_playerHealth));
     }
 
     private void GameOver()
