@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
 
     private Slider _enemyHealthSlider;
 
-    private Transform _healthBarCanvas;
+    private Transform _worldSpaceCanvas;
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
     {
         _enemyMoving = GetComponent<EnemyMoving>();
         _enemyHealthSlider = GetComponentInChildren<Slider>();
-        _healthBarCanvas = GameObject.Find("HealthBarCanvas").transform;
+        _worldSpaceCanvas = GameObject.Find("WorldSpaceCanvas").transform;
 
         EnemySetSettings();
         SliderPreset();
@@ -42,7 +42,7 @@ public class EnemyManager : MonoBehaviour
         _enemyHealthSlider.maxValue = _enemyPreferences.Health;
         _enemyHealthSlider.value = _enemyHealth;
 
-        _enemyHealthSlider.transform.SetParent(_healthBarCanvas);
+        _enemyHealthSlider.transform.SetParent(_worldSpaceCanvas);
     }
 
     private void Update()

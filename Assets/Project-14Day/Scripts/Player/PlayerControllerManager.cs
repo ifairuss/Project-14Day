@@ -108,7 +108,7 @@ public class PlayerControllerManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Altar"))
+        if (other.CompareTag("Altar") && _buttonSpawner != null)
         {
             _buttonSpawner.gameObject.SetActive(false);
             _buttonSpawner.EnemySpawnerPreferences = null;

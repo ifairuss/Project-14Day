@@ -13,7 +13,10 @@ public class EnemySpawner : MonoBehaviour
     public List<Transform> EnemySpawnPoints;
 
     [SerializeField] private SplashText _waveText;
-    //[SerializeField] private TextMeshProUGUI _timerText;
+    [SerializeField] private TextMeshProUGUI _timerText;
+
+    private Transform _worldSpaceCanvas;
+    private CircleCollider2D _circleCollider;
 
     [Space]
     [Header("Spawner data")]
@@ -33,6 +36,9 @@ public class EnemySpawner : MonoBehaviour
         _minEnemySpawnInWaves = EnemyThisSpawnerPreferences.MinEnemySpawnToStart;
         _maxEnemySpawnInWaves = EnemyThisSpawnerPreferences.MaxEnemySpawnToStart;
         _maxEnemy = EnemyThisSpawnerPreferences.MaxEnemy;
+
+        _worldSpaceCanvas = GameObject.Find("WorldSpaceCanvas").transform;
+        _circleCollider = GetComponent<CircleCollider2D>();
     }
 
     private void Update()
@@ -41,9 +47,25 @@ public class EnemySpawner : MonoBehaviour
 
         if (_enemyCount <= 0 && _spawnerReloadTime > 0)
         {
-            _spawnerReloadTime -= 0.1f * Time.deltaTime;
-            //_timerText.text = _spawnerReloadTime.ToString();
+            _timerText.gameObject.SetActive(true);
+            _timerText.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1.5f, 0));
+            _spawnerReloadTime -= 1 * Time.deltaTime;
+            ReloadAltarTimer();
+            _circleCollider.enabled = false;
         }
+        else
+        {
+            _timerText.transform.SetParent(transform.parent);
+            _timerText.gameObject.SetActive(false);
+            _circleCollider.enabled = true;
+        }
+    }
+
+    private void ReloadAltarTimer()
+    {
+        string FormatTimer = string.Format("{0:0}", _spawnerReloadTime);
+        _timerText.text = FormatTimer;
+        _timerText.transform.SetParent(_worldSpaceCanvas);
     }
 
     public void EnemyCountUpdate()

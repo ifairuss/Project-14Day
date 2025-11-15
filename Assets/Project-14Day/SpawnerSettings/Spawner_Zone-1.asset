@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 5998840912964042445, guid: 0266bc7030b2d1849885da7a8eab9a7a, type: 3}
   BossPrefabs: []
   SpawnerPosition: {fileID: 0}
-  SpawnerReloadTime: 1
+  SpawnerReloadTime: 30
   TimeToEnemySpawned: 3
   BossSpawnWave: 5
   MinEnemySpawnToStart: 2
