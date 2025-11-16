@@ -5188,8 +5188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 535342273}
-  - component: {fileID: 535342272}
-  - component: {fileID: 535342271}
+  - component: {fileID: 535342274}
   m_Layer: 0
   m_Name: Boss_1
   m_TagString: Untagged
@@ -5197,32 +5196,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &535342271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535342270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55fe1cc1952132c47ac28ad5915f27eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMoving
-  IsMoving: 0
---- !u!114 &535342272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535342270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50104269ec3abda47bd467d812a3e91c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  _enemyPreferences: {fileID: 0}
 --- !u!4 &535342273
 Transform:
   m_ObjectHideFlags: 0
@@ -5239,6 +5212,28 @@ Transform:
   - {fileID: 1577678481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &535342274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535342270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b9e3a5ca39dca4b91eef1488cc1953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombieBoss
+  _zombieVariable:
+  - {fileID: 8790699673487362290, guid: 2b1515f46e184de479f78b38af201dd8, type: 3}
+  - {fileID: 5998840912964042445, guid: 0266bc7030b2d1849885da7a8eab9a7a, type: 3}
+  _speed: 1
+  _health: 500
+  _timeToAttack: 0.5
+  _defaulthDamage: 35
+  _rangeDamage: 60
+  _splashDamage: 20
+  _isMoving: 0
 --- !u!1 &536156623
 GameObject:
   m_ObjectHideFlags: 0
