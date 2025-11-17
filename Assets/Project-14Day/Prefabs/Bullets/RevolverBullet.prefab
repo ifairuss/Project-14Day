@@ -109,7 +109,7 @@ MonoBehaviour:
   _bulletDamage: 60
   _bulletLayer:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 328
 --- !u!58 &3887593582967525394
 CircleCollider2D:
   m_ObjectHideFlags: 0

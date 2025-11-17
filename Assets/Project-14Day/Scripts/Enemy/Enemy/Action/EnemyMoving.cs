@@ -19,6 +19,8 @@ public class EnemyMoving : MonoBehaviour
     {
         if (target == null) return;
 
+        _agent.speed = speed;
+
         _agent.SetDestination(target.position);
 
         if (Vector3.Distance(target.position, transform.position) <= (_agent.stoppingDistance + 0.2f))

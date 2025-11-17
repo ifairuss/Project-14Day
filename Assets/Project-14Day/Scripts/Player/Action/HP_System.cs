@@ -13,11 +13,11 @@ public class HP_System : MonoBehaviour
 
         _forwardgroundImage.fillAmount = health;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
 
         if (_middlegroundImage.fillAmount > _forwardgroundImage.fillAmount)
         {
-            _middlegroundImage.fillAmount -= 1f *Time.deltaTime;
+            _middlegroundImage.fillAmount -= 0.5f * Time.fixedDeltaTime;
         }
         else if (_middlegroundImage.fillAmount < _forwardgroundImage.fillAmount)
         {

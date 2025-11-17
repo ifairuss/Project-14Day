@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -21,12 +22,32 @@ public class Bullet : MonoBehaviour
     {
         if (_bulletLayer == (_bulletLayer | (1 << collision.gameObject.layer)))
         {
+
+            if (collision.gameObject.layer == LayerMask.NameToLayer("BulletBossInteraction"))
+            {
+                TakeDamageBoss(collision);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("BulletInteraction"))
+            {
+                TakeDamageEnemy(collision);
+            }
+
             print($"Bullet hit: {collision.gameObject.name}");
-
-            EnemyManager enemyManager = collision.gameObject.GetComponent<EnemyManager>();
-
-            enemyManager?.TakeDamage(_bulletDamage);
             Destroy(gameObject);
         }
+    }
+
+    private void TakeDamageEnemy(Collider2D collision)
+    {
+        EnemyManager enemyManager = collision.gameObject.GetComponent<EnemyManager>();
+
+        enemyManager?.TakeDamage(_bulletDamage);
+    }
+
+    private void TakeDamageBoss(Collider2D collision)
+    {
+        BossAbstract bossManager = collision.gameObject.GetComponent<BossAbstract>();
+
+        bossManager?.TakeDamage(_bulletDamage);
     }
 }
