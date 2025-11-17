@@ -12,10 +12,15 @@ public abstract class BossAbstract : MonoBehaviour
     [SerializeField] private int _health;
     [SerializeField] private float _timeToAttack;
 
-    [Header("Dmage Preferences")]
+    [Header("Damage Preferences")]
     [SerializeField] private int _defaulthDamage;
     [SerializeField] private int _rangeDamage;
     [SerializeField] private int _splashDamage;
+
+    [Header("Boss Attack Coldown")]
+    [SerializeField] private float _defaulthDamageColdown;
+    [SerializeField] private float _rangeDamageColdown;
+    [SerializeField] private float _splashDamageColdown;
 
     [Header("System status")]
     [SerializeField] private bool _isMoving;
@@ -34,6 +39,7 @@ public abstract class BossAbstract : MonoBehaviour
     private void Update()
     {
         BossMoving();
+        BossAttack();
     }
 
     private void Flip(Transform _playerControllerManager)
@@ -68,7 +74,27 @@ public abstract class BossAbstract : MonoBehaviour
 
     public virtual void BossAttack()
     {
+        if (_defaulthDamageColdown > 0)
+        {
+            _defaulthDamageColdown -= 0.1f * Time.deltaTime;
+        }
 
+        PlayerTakeDamage();
+    }
+
+    public void PlayerTakeDamage()
+    {
+        if (Vector3.Distance(transform.position, _playerControllerManager.transform.position) <= (_agent.stoppingDistance + 0.2f))
+        {
+            if (_defaulthDamageColdown <= 0 && _isMoving == false)
+            {
+                _playerControllerManager.TakeDamage(_defaulthDamage);
+
+                print("Boss damage player");
+
+                _defaulthDamageColdown = 0.2f;
+            }
+        }
     }
 
     public virtual void TakeDamage(int damage)
