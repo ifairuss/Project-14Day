@@ -84,7 +84,7 @@ public abstract class BossAbstract : MonoBehaviour
 
     public void PlayerTakeDamage()
     {
-        if (Vector3.Distance(transform.position, _playerControllerManager.transform.position) <= (_agent.stoppingDistance + 0.2f))
+        if (Vector3.Distance(transform.position, _playerControllerManager.transform.position) <= (_agent.stoppingDistance + 0.3f))
         {
             if (_defaulthDamageColdown <= 0 && _isMoving == false)
             {
