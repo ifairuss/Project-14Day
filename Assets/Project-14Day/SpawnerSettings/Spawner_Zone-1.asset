@@ -15,7 +15,8 @@ MonoBehaviour:
   EnemyPrefabs:
   - {fileID: 8790699673487362290, guid: 2b1515f46e184de479f78b38af201dd8, type: 3}
   - {fileID: 5998840912964042445, guid: 0266bc7030b2d1849885da7a8eab9a7a, type: 3}
-  BossPrefabs: []
+  BossPrefabs:
+  - {fileID: 2308830296866264790, guid: ddb59e55f59010b49b7e19dcc37cd710, type: 3}
   SpawnerPosition: {fileID: 0}
   SpawnerReloadTime: 30
   TimeToEnemySpawned: 3

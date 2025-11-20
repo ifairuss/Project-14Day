@@ -10,6 +10,7 @@ TagManager:
   - LootBox
   - Money
   - Altar
+  - WorldUI
   layers:
   - Default
   - TransparentFX

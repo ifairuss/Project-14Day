@@ -142,12 +142,21 @@ public class EnemySpawner : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
+        GameObject boss = Instantiate(EnemyThisSpawnerPreferences.BossPrefabs[0], transform.position, Quaternion.identity);
+
+        boss.transform.SetParent(transform);
+
         _bossWave = _bossWave += EnemyThisSpawnerPreferences.BossSpawnWave;
         _waves += 1;
+
         if (_maxEnemy > _maxEnemySpawnInWaves)
         {
             _minEnemySpawnInWaves += 1;
             _maxEnemySpawnInWaves += 2;
         }
+
+        _spawnerReloadTime = EnemyThisSpawnerPreferences.SpawnerReloadTime;
+
+        StopCoroutine(SpawnBossWave());
     }
 }

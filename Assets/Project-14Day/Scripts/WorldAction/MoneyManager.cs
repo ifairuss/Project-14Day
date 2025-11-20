@@ -14,4 +14,9 @@ public class MoneyManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Start()
+    {
+        Destroy(gameObject, 10);
+    }
 }
