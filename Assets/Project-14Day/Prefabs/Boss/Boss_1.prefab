@@ -122,7 +122,7 @@ MonoBehaviour:
   - {fileID: 5076719876828672767}
   _allBossEnemy: []
   _speed: 1.5
-  _health: 1000
+  _health: 100
   _timeToAttack: 0.5
   _bossName: Big Zombie
   _defaulthDamage: 35

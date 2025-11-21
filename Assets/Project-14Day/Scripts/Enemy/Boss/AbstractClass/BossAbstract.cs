@@ -199,13 +199,22 @@ public abstract class BossAbstract : MonoBehaviour
     {
         for (int i = 0; i < _allBossEnemy.Count; i++)
         {
-            var enemy = _allBossEnemy[i].GetComponent<EnemyManager>();
-            enemy.TakeDamage(1000);
+            if (_allBossEnemy[i]!= null)
+            {
+                var enemy = _allBossEnemy[i].GetComponent<EnemyManager>();
+                enemy.TakeDamage(1000);
+            }
+            else
+            {
+                _allBossEnemy.Remove(_allBossEnemy[i]);
+            }
         }
 
-        _allBossEnemy.Clear();
-        Destroy(_bossHealthBar.gameObject);
-        Destroy(gameObject);
+        if (_allBossEnemy.Count == 0)
+        {
+            Destroy(_bossHealthBar.gameObject);
+            Destroy(gameObject);
+        }
     }
 
     public virtual void TakeDamage(int damage)
