@@ -122,7 +122,7 @@ MonoBehaviour:
   - {fileID: 5076719876828672767}
   _allBossEnemy: []
   _speed: 1.5
-  _health: 100
+  _health: 1000
   _timeToAttack: 0.5
   _bossName: Big Zombie
   _defaulthDamage: 35
@@ -268,8 +268,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 964.36896, y: 4.28919}
-  m_SizeDelta: {x: 783.2783, y: 145}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 785, y: 145}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2042086669372646068
 CanvasRenderer:

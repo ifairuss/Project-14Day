@@ -52,6 +52,7 @@ public abstract class BossAbstract : MonoBehaviour
         _bossUITransform = GameObject.FindWithTag("WorldUI").GetComponent<Transform>();
 
         _bossHealthBar.transform.SetParent(_bossUITransform);
+
         _bossNameUIText.text = _bossName;
 
         _agent.speed = _speed;
