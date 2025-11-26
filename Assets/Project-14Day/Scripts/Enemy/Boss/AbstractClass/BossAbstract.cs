@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,16 +5,12 @@ using UnityEngine.UI;
 
 public abstract class BossAbstract : MonoBehaviour
 {
-    [Header("Boss help")]
-    [SerializeField] private List<GameObject> _zombieVariable;
-    [SerializeField] private List<Transform> _spawnVariable;
-    [SerializeField] private List<GameObject> _allBossEnemy;
-
     [Header("Preferences")]
     [SerializeField] private float _speed;
-    [SerializeField] private float _health;
     [SerializeField] private float _timeToAttack;
     [SerializeField] private string _bossName;
+
+    public float Health;
 
     [Header("Damage Preferences")]
     [SerializeField] private int _defaulthDamage;
@@ -41,10 +36,6 @@ public abstract class BossAbstract : MonoBehaviour
     private PlayerControllerManager _playerControllerManager;
     private Transform _bossUITransform;
 
-    private bool _bossSpawnedPhaseThree;
-    private bool _bossSpawnedPhaseTwo;
-    private bool _bossSpawnedPhaseOne;
-
     public void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -57,16 +48,14 @@ public abstract class BossAbstract : MonoBehaviour
 
         _agent.speed = _speed;
 
-        _bossSpawnedPhaseThree = true;
-
         _bossHealthBar.SetActive(true);
 
-        _imageHealthForwardground.fillAmount = _health / 1000;
+        _imageHealthForwardground.fillAmount = Health / 1000;
     }
 
-    private void Update()
+    public virtual void Update()
     {
-        if (_health <= 0)
+        if (Health <= 0)
         {
             BossDead();
         }
@@ -74,62 +63,11 @@ public abstract class BossAbstract : MonoBehaviour
         BossMoving();
         BossAttack();
         HealthUpdate();
-        BossSpawnedEnemy();
     }
 
-    private void BossSpawnedEnemy()
+    public void HealthUpdate()
     {
-        if (_bossSpawnedPhaseThree && _health <= 750)
-        {
-            for (int i = 0; i < _spawnVariable[2].childCount; i++)
-            {
-                int randomZombie = Random.Range(0, _zombieVariable.Count);
-
-                var enemy = Instantiate(_zombieVariable[randomZombie], _spawnVariable[2].GetChild(i).transform.position, Quaternion.identity);
-
-                _allBossEnemy.Add(enemy);
-            }
-
-            Debug.Log("Print phase 3 closed");
-
-            _bossSpawnedPhaseThree = false;
-            _bossSpawnedPhaseTwo = true;
-        }
-        else if (_bossSpawnedPhaseTwo && _health <= 500)
-        {
-            for (int o = 0; o < _spawnVariable[1].childCount; o++)
-            {
-                int randomZombie = Random.Range(0, _zombieVariable.Count);
-
-                var enemy = Instantiate(_zombieVariable[randomZombie], _spawnVariable[1].GetChild(o).transform.position, Quaternion.identity);
-
-                _allBossEnemy.Add(enemy);
-            }
-
-            Debug.Log("Print phase 2 closed");
-
-            _bossSpawnedPhaseTwo = false;
-            _bossSpawnedPhaseOne = true;
-        }
-        else if (_bossSpawnedPhaseOne && _health <= 250)
-        {
-            for (int k = 0; k < _spawnVariable[0].childCount; k++)
-            {
-                int randomZombie = Random.Range(0, _zombieVariable.Count);
-
-                var enemy = Instantiate(_zombieVariable[randomZombie], _spawnVariable[0].GetChild(k).transform.position, Quaternion.identity);
-
-                _allBossEnemy.Add(enemy);
-            }
-
-            Debug.Log("Print phase 1 closed");
-            _bossSpawnedPhaseOne = false;
-        }
-    }
-
-    private void HealthUpdate()
-    {
-        _imageHealthForwardground.fillAmount = _health / 1000;
+        _imageHealthForwardground.fillAmount = Health / 1000;
 
         if (_imageHealthMiddleground.fillAmount > _imageHealthForwardground.fillAmount)
         {
@@ -196,30 +134,13 @@ public abstract class BossAbstract : MonoBehaviour
         }
     }
 
-    private void BossDead()
+    public virtual void BossDead()
     {
-        for (int i = 0; i < _allBossEnemy.Count; i++)
-        {
-            if (_allBossEnemy[i]!= null)
-            {
-                var enemy = _allBossEnemy[i].GetComponent<EnemyManager>();
-                enemy.TakeDamage(1000);
-            }
-            else
-            {
-                _allBossEnemy.Remove(_allBossEnemy[i]);
-            }
-        }
-
-        if (_allBossEnemy.Count == 0)
-        {
-            Destroy(_bossHealthBar.gameObject);
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     public virtual void TakeDamage(int damage)
     {
-        _health -= damage;
+        Health -= damage;
     }
 }
