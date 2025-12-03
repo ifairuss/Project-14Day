@@ -112,6 +112,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b9e3a5ca39dca4b91eef1488cc1953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieBoss
+  _speed: 1.5
+  _timeToAttack: 0.5
+  _bossName: Big Zombie
+  Health: 1000
+  _defaulthDamage: 35
+  _rangeDamage: 60
+  _splashDamage: 20
+  _defaulthDamageColdown: 0.2
+  _rangeDamageColdown: 0
+  _splashDamageColdown: 0
+  _isMoving: 0
   _zombieVariable:
   - {fileID: 8790699673487362290, guid: 2b1515f46e184de479f78b38af201dd8, type: 3}
   - {fileID: 5998840912964042445, guid: 0266bc7030b2d1849885da7a8eab9a7a, type: 3}
@@ -120,22 +131,6 @@ MonoBehaviour:
   - {fileID: 5940227729434121028}
   - {fileID: 5076719876828672767}
   _allBossEnemy: []
-  _speed: 1.5
-  _health: 1000
-  _timeToAttack: 0.5
-  _bossName: Big Zombie
-  _defaulthDamage: 35
-  _rangeDamage: 60
-  _splashDamage: 20
-  _defaulthDamageColdown: 0.2
-  _rangeDamageColdown: 0
-  _splashDamageColdown: 0
-  _bossHealthBar: {fileID: 0}
-  _imageHealthMiddleground: {fileID: 0}
-  _imageHealthForwardground: {fileID: 0}
-  _bossNameUIText: {fileID: 0}
-  _enemyContainer: {fileID: 1554482651018612600}
-  _isMoving: 0
 --- !u!195 &6367103949990493844
 NavMeshAgent:
   m_ObjectHideFlags: 0

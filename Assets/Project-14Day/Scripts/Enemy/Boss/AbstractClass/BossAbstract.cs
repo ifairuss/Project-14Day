@@ -22,35 +22,45 @@ public abstract class BossAbstract : MonoBehaviour
     [SerializeField] private float _rangeDamageColdown;
     [SerializeField] private float _splashDamageColdown;
 
-    [Header("Boss components")]
-    [SerializeField] private GameObject _bossHealthBar;
-    [SerializeField] private Image _imageHealthMiddleground;
-    [SerializeField] private Image _imageHealthForwardground;
-    [SerializeField] private TextMeshProUGUI _bossNameUIText;
-    [SerializeField] private Transform _enemyContainer;
-
     [Header("System status")]
     [SerializeField] private bool _isMoving;
 
     private NavMeshAgent _agent;
     private PlayerControllerManager _playerControllerManager;
-    private Transform _bossUITransform;
+    private BossHPData _bossUITransform;
+
+    private GameObject _bossHealthBar;
+    private Image _imageHealthMiddleground;
+    private Image _imageHealthForwardground;
+    private TextMeshProUGUI _bossNameUIText;
+
+    public bool BossSpawnedPhaseThree;
+    public bool BossSpawnedPhaseTwo;
+    public bool BossSpawnedPhaseOne;
+
+    private void BossUIHealthGetComponents()
+    {
+        _bossHealthBar = _bossUITransform.BossHeatBar;
+        _imageHealthMiddleground = _bossUITransform.ImageHealthMiddleground;
+        _imageHealthForwardground = _bossUITransform.ImageHealthForwardground;
+        _bossNameUIText = _bossUITransform.BossNameUIText;
+
+        _bossNameUIText.text = _bossName;
+        _bossHealthBar.SetActive(true);
+        _imageHealthForwardground.fillAmount = Health / 1000;
+    }
 
     public void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _playerControllerManager = GameObject.FindWithTag("Player").GetComponent<PlayerControllerManager>();
-        _bossUITransform = GameObject.FindWithTag("WorldUI").GetComponent<Transform>();
-
-        _bossHealthBar.transform.SetParent(_bossUITransform);
-
-        _bossNameUIText.text = _bossName;
+        _bossUITransform = GameObject.FindWithTag("WorldUI").GetComponent<BossHPData>();
 
         _agent.speed = _speed;
 
-        _bossHealthBar.SetActive(true);
+        BossUIHealthGetComponents();
 
-        _imageHealthForwardground.fillAmount = Health / 1000;
+        BossSpawnedPhaseThree = true;
     }
 
     public virtual void Update()
@@ -58,6 +68,7 @@ public abstract class BossAbstract : MonoBehaviour
         if (Health <= 0)
         {
             BossDead();
+            _bossHealthBar?.SetActive(false);
         }
 
         BossMoving();
@@ -93,7 +104,7 @@ public abstract class BossAbstract : MonoBehaviour
 
     public virtual void BossMoving()
     {
-        if (_playerControllerManager == null) return;
+        if (_playerControllerManager == null && Health > 0) return;
 
         _agent.SetDestination(_playerControllerManager.transform.position);
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class ZombieBoss : BossAbstract
@@ -8,10 +9,6 @@ public class ZombieBoss : BossAbstract
     [SerializeField] private List<Transform> _spawnVariable;
     [SerializeField] private List<GameObject> _allBossEnemy;
 
-    private bool _bossSpawnedPhaseThree;
-    private bool _bossSpawnedPhaseTwo;
-    private bool _bossSpawnedPhaseOne;
-
     public override void Update()
     {
         base.Update();
@@ -20,7 +17,7 @@ public class ZombieBoss : BossAbstract
 
     private void BossSpawnedEnemy()
     {
-        if (_bossSpawnedPhaseThree && Health <= 750)
+        if (BossSpawnedPhaseThree && Health <= 750)
         {
             for (int i = 0; i < _spawnVariable[2].childCount; i++)
             {
@@ -33,10 +30,10 @@ public class ZombieBoss : BossAbstract
 
             Debug.Log("Print phase 3 closed");
 
-            _bossSpawnedPhaseThree = false;
-            _bossSpawnedPhaseTwo = true;
+            BossSpawnedPhaseThree = false;
+            BossSpawnedPhaseTwo = true;
         }
-        else if (_bossSpawnedPhaseTwo && Health <= 500)
+        else if (BossSpawnedPhaseTwo && Health <= 500)
         {
             for (int o = 0; o < _spawnVariable[1].childCount; o++)
             {
@@ -49,10 +46,10 @@ public class ZombieBoss : BossAbstract
 
             Debug.Log("Print phase 2 closed");
 
-            _bossSpawnedPhaseTwo = false;
-            _bossSpawnedPhaseOne = true;
+            BossSpawnedPhaseTwo = false;
+            BossSpawnedPhaseOne = true;
         }
-        else if (_bossSpawnedPhaseOne && Health <= 250)
+        else if (BossSpawnedPhaseOne && Health <= 250)
         {
             for (int k = 0; k < _spawnVariable[0].childCount; k++)
             {
@@ -64,7 +61,7 @@ public class ZombieBoss : BossAbstract
             }
 
             Debug.Log("Print phase 1 closed");
-            _bossSpawnedPhaseOne = false;
+            BossSpawnedPhaseOne = false;
         }
     }
 
