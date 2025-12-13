@@ -91,7 +91,7 @@ public class EnemyManager : MonoBehaviour
             Destroy(_enemyHealthSlider.gameObject);
             Destroy(gameObject);
             
-            Debug.Log($"{gameObject.name} - Enemy is dead");
+            Debug.Log($"<color=blue> {gameObject.name} - Enemy is dead </color>");
         }
     }
 
@@ -102,7 +102,7 @@ public class EnemyManager : MonoBehaviour
         _enemyHealth -= damage;
         _enemyHealthSlider.value = _enemyHealth;
 
-        Debug.Log($"{gameObject.name} - Enemy health - {_enemyHealth}");
+        Debug.Log($"<color=blue> {gameObject.name} </color> - <color=red> Enemy health </color> -  <color=green>{_enemyHealth}</color>");
     }
 
     public void AttackPlayer()
@@ -112,7 +112,7 @@ public class EnemyManager : MonoBehaviour
         if (_enemyAttackCooldown <= 0)
         {
             PlayerControllerManager.Instance.TakeDamage(_enemyDamage);
-            Debug.Log($"{gameObject.name} - Enemy attacked the player");
+            Debug.Log($"<color=red> {gameObject.name} - Enemy attacked the player </color>");
 
             _enemyAttackCooldown = _enemyPreferences.AttackCooldown;
         }

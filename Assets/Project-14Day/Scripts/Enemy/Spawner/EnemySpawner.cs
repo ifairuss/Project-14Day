@@ -106,7 +106,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnNormalWave()
     {
-        print($"Wave - {_waves}");
+        print($" <color=orange> Wave - {_waves} </color>");
 
         int randomEnemyCount = Random.Range(_minEnemySpawnInWaves, _maxEnemySpawnInWaves);
 
@@ -138,7 +138,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnBossWave()
     {
-        print($"Boss - Wave");
+        Debug.Log($"<color=red> Boss - Wave </color>");
 
         yield return new WaitForSeconds(1);
 
@@ -148,6 +148,8 @@ public class EnemySpawner : MonoBehaviour
 
         _bossWave = _bossWave += EnemyThisSpawnerPreferences.BossSpawnWave;
         _waves += 1;
+
+        Debug.Log($"<color=red> Next boss wave {_bossWave} </color>");
 
         if (_maxEnemy > _maxEnemySpawnInWaves)
         {

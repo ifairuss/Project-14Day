@@ -8685,6 +8685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944263971}
+  - component: {fileID: 944263972}
   m_Layer: 5
   m_Name: WorldInterface
   m_TagString: WorldUI
@@ -8712,6 +8713,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &944263972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944263970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c0b0fe63e47654d9ebcc72ae56346c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHPData
+  BossHeatBar: {fileID: 2105137832}
+  ImageHealthMiddleground: {fileID: 143984893}
+  ImageHealthForwardground: {fileID: 608280885}
+  BossNameUIText: {fileID: 1561051940}
 --- !u!1 &954168498
 GameObject:
   m_ObjectHideFlags: 0
@@ -17601,7 +17618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2105137833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18104,7 +18121,7 @@ GameObject:
   - component: {fileID: 2998467647034812319}
   - component: {fileID: 5495033444492679357}
   m_Layer: 0
-  m_Name: AltarGameObject
+  m_Name: AltarData
   m_TagString: Altar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -58,7 +58,7 @@ public class PlayerControllerManager : MonoBehaviour
     {
         if (_playerHealth <= 0)
         {
-            Debug.Log("Player is dead");
+            Debug.Log("<color=red> Player is dead </color>");
 
             transform.position = _playerSpawnPoint.position;
             _playerHealth = _playerMaxHealth;
@@ -89,7 +89,7 @@ public class PlayerControllerManager : MonoBehaviour
     {
         _playerHealth -= damage;
 
-        Debug.Log($"Player health {_playerHealth}");
+        Debug.Log($" <color=green> Player health </color> <color=red>{_playerHealth}</color>");
     }
 
     private void OnTriggerEnter2D(Collider2D other)

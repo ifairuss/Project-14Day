@@ -25,7 +25,7 @@ public class FertilizerManager : MonoBehaviour
     {
         _fertilizerCount += amount;
         _fertilizerCountText.text = _fertilizerCount.ToString();
-        Debug.Log($"Money added: {amount}");
+        Debug.Log($" <color=yellow> Money added: {amount}  </color>");
     }
 
     public void RemoveMoney(int amount)
@@ -40,7 +40,7 @@ public class FertilizerManager : MonoBehaviour
             }
 
             _fertilizerCountText.text = _fertilizerCount.ToString();
-            Debug.Log($"Money removed: {amount}");
+            Debug.Log($" <color=red> Money removed: </color> <color=yellow> {amount}  </color>");
         }
     }
 }
