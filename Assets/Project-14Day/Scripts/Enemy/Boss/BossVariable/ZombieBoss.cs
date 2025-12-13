@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using System.Security.Cryptography;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieBoss : BossAbstract
@@ -17,7 +16,7 @@ public class ZombieBoss : BossAbstract
 
     private void BossSpawnedEnemy()
     {
-        if (BossSpawnedPhaseThree && Health <= 750)
+        if (BossSpawnedPhaseThree && Health <= HealthInPhaseThree)
         {
             for (int i = 0; i < _spawnVariable[2].childCount; i++)
             {
@@ -33,7 +32,7 @@ public class ZombieBoss : BossAbstract
             BossSpawnedPhaseThree = false;
             BossSpawnedPhaseTwo = true;
         }
-        else if (BossSpawnedPhaseTwo && Health <= 500)
+        else if (BossSpawnedPhaseTwo && Health <= HealthInPhaseTwo)
         {
             for (int o = 0; o < _spawnVariable[1].childCount; o++)
             {
@@ -49,7 +48,7 @@ public class ZombieBoss : BossAbstract
             BossSpawnedPhaseTwo = false;
             BossSpawnedPhaseOne = true;
         }
-        else if (BossSpawnedPhaseOne && Health <= 250)
+        else if (BossSpawnedPhaseOne && Health <= HealthInPhaseOne)
         {
             for (int k = 0; k < _spawnVariable[0].childCount; k++)
             {
@@ -62,6 +61,26 @@ public class ZombieBoss : BossAbstract
 
             Debug.Log("Print phase 1 closed");
             BossSpawnedPhaseOne = false;
+        }
+    }
+
+    public override void BossAttack()
+    {
+        if (Health > HealthInPhaseThree)
+        {
+
+        }
+        else if (BossSpawnedPhaseThree && Health <= HealthInPhaseThree)
+        {
+
+        }
+        else if (BossSpawnedPhaseTwo && Health <= HealthInPhaseTwo)
+        {
+
+        }
+        else if (BossSpawnedPhaseOne && Health <= HealthInPhaseOne)
+        {
+
         }
     }
 

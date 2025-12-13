@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -11,6 +11,12 @@ public abstract class BossAbstract : MonoBehaviour
     [SerializeField] private string _bossName;
 
     public float Health;
+
+    [Space]
+    [Header("Boss Phase HP")]
+    public float HealthInPhaseThree;
+    public float HealthInPhaseTwo;
+    public float HealthInPhaseOne;
 
     [Header("Damage Preferences")]
     [SerializeField] private int _defaulthDamage;
@@ -122,27 +128,25 @@ public abstract class BossAbstract : MonoBehaviour
 
     public virtual void BossAttack()
     {
+        //Не готового убрав но не зробив - потім доробити
+
         if (_defaulthDamageColdown > 0)
         {
             _defaulthDamageColdown -= 0.1f * Time.deltaTime;
         }
 
-        PlayerTakeDamage();
-    }
-
-    public void PlayerTakeDamage()
-    {
         if (Vector3.Distance(transform.position, _playerControllerManager.transform.position) <= (_agent.stoppingDistance + 0.3f))
         {
-            if (_defaulthDamageColdown <= 0 && _isMoving == false)
+            if(_defaulthDamageColdown <= 0 && !_isMoving)
             {
-                _playerControllerManager.TakeDamage(_defaulthDamage);
-
-                print("Boss damage player");
-
-                _defaulthDamageColdown = 0.2f;
+                PlayerTakeDamage(_defaulthDamage);
             }
         }
+    }
+
+    public void PlayerTakeDamage(int damage)
+    {
+        _playerControllerManager.TakeDamage(damage);
     }
 
     public virtual void BossDead()

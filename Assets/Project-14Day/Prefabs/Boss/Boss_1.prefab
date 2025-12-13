@@ -116,6 +116,9 @@ MonoBehaviour:
   _timeToAttack: 0.5
   _bossName: Big Zombie
   Health: 1000
+  HealthInPhaseThree: 750
+  HealthInPhaseTwo: 500
+  HealthInPhaseOne: 300
   _defaulthDamage: 35
   _rangeDamage: 60
   _splashDamage: 20
@@ -123,6 +126,9 @@ MonoBehaviour:
   _rangeDamageColdown: 0
   _splashDamageColdown: 0
   _isMoving: 0
+  BossSpawnedPhaseThree: 0
+  BossSpawnedPhaseTwo: 0
+  BossSpawnedPhaseOne: 0
   _zombieVariable:
   - {fileID: 8790699673487362290, guid: 2b1515f46e184de479f78b38af201dd8, type: 3}
   - {fileID: 5998840912964042445, guid: 0266bc7030b2d1849885da7a8eab9a7a, type: 3}
