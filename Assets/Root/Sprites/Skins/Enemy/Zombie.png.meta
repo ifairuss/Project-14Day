@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 2ce3c8f35f7be264799664afb95f7926
+guid: 2da3f92a111a84540ada257c74e9ad6d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8200793033538282861
-    second: Enemy-Atlas_0
+      213: 6019453725058403666
+    second: Zombie_0
   - first:
-      213: -1057466632040966436
-    second: Enemy-Atlas_1
+      213: -2485871483528494817
+    second: Zombie_1
   - first:
-      213: -670017776694018066
-    second: Enemy-Atlas_2
+      213: 6284166523789267160
+    second: Zombie_2
   - first:
-      213: 5321999362910676030
-    second: Enemy-Atlas_3
+      213: -8585762769051335824
+    second: Zombie_3
   - first:
-      213: -7372055478936101959
-    second: Enemy-Atlas_4
+      213: -980516788960830398
+    second: Zombie_4
   - first:
-      213: 4377258534443380889
-    second: Enemy-Atlas_5
+      213: 9211052458692073003
+    second: Zombie_5
   - first:
-      213: -4932373852512884462
-    second: Enemy-Atlas_6
+      213: -1977811604655986376
+    second: Zombie_6
   - first:
-      213: 3640639520324769980
-    second: Enemy-Atlas_7
+      213: 2485403828518691469
+    second: Zombie_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,14 +119,14 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Android
-    maxTextureSize: 512
-    resizeAlgorithm: 1
-    textureFormat: 48
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -147,80 +147,36 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy-Atlas_0
+      name: Zombie_0
       rect:
         serializedVersion: 2
-        x: 54
-        y: 55
-        width: 130
-        height: 197
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d652c8870d11fc170800000000000000
-      internalID: 8200793033538282861
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-Atlas_1
-      rect:
-        serializedVersion: 2
-        x: 201
-        y: 198
-        width: 103
-        height: 29
+        x: 0
+        y: 147
+        width: 208
+        height: 215
       alignment: 9
-      pivot: {x: 0.080461964, y: 0.47969213}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd69e5b63bf1351f0800000000000000
-      internalID: -1057466632040966436
+      spriteID: 25d02004545698350800000000000000
+      internalID: 6019453725058403666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy-Atlas_2
+      name: Zombie_1
       rect:
         serializedVersion: 2
-        x: 202
-        y: 85
-        width: 134
-        height: 95
+        x: 221
+        y: 143
+        width: 155
+        height: 216
       alignment: 9
-      pivot: {x: 0.08618916, y: 0.90421}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eefb4fac16e93b6f0800000000000000
-      internalID: -670017776694018066
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-Atlas_3
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 0
-        width: 25
-        height: 43
-      alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -228,96 +184,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e346521393a8bd940800000000000000
-      internalID: 5321999362910676030
+      spriteID: f11c2037e09608dd0800000000000000
+      internalID: -2485871483528494817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy-Atlas_4
+      name: Zombie_2
       rect:
         serializedVersion: 2
-        x: 97
-        y: 0
-        width: 35
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9bb9a89c99231b990800000000000000
-      internalID: -7372055478936101959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-Atlas_5
-      rect:
-        serializedVersion: 2
-        x: 139
-        y: 0
-        width: 25
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9907b8302752fbc30800000000000000
-      internalID: 4377258534443380889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-Atlas_6
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 0
-        width: 35
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2196b8d2d10bc8bb0800000000000000
-      internalID: -4932373852512884462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-Atlas_7
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 4
-        width: 46
-        height: 54
+        x: 385
+        y: 144
+        width: 208
+        height: 216
       alignment: 9
-      pivot: {x: 0.27409396, y: 0.7789476}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb8d434da56268230800000000000000
-      internalID: 3640639520324769980
+      spriteID: 8d05cdf8828d53750800000000000000
+      internalID: 6284166523789267160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 96
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 073cbe8304e39d880800000000000000
+      internalID: -8585762769051335824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_4
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 83
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24cdea9ec218462f0800000000000000
+      internalID: -980516788960830398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_5
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 13
+        width: 95
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2654dfa86b34df70800000000000000
+      internalID: 9211052458692073003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_6
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 84
+        width: 41
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 839a5df03d66d84e0800000000000000
+      internalID: -1977811604655986376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_7
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 19
+        width: 47
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d82a0422d9ded7220800000000000000
+      internalID: 2485403828518691469
       vertices: []
       indices: 
       edges: []
@@ -326,7 +326,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 998383675f2f79b4c91b3ba35d2e8654
+    spriteID: 6b33d229abe948f49824425fd93f5082
     internalID: 0
     vertices: []
     indices: 
@@ -336,14 +336,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Enemy-Atlas_0: 8200793033538282861
-      Enemy-Atlas_1: -1057466632040966436
-      Enemy-Atlas_2: -670017776694018066
-      Enemy-Atlas_3: 5321999362910676030
-      Enemy-Atlas_4: -7372055478936101959
-      Enemy-Atlas_5: 4377258534443380889
-      Enemy-Atlas_6: -4932373852512884462
-      Enemy-Atlas_7: 3640639520324769980
+      Zombie_0: 6019453725058403666
+      Zombie_1: -2485871483528494817
+      Zombie_2: 6284166523789267160
+      Zombie_3: -8585762769051335824
+      Zombie_4: -980516788960830398
+      Zombie_5: 9211052458692073003
+      Zombie_6: -1977811604655986376
+      Zombie_7: 2485403828518691469
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
