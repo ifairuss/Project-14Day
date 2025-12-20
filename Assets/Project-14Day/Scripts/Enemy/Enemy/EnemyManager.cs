@@ -61,7 +61,7 @@ public class EnemyManager : MonoBehaviour
 
     private void EnemyControllers()
     {
-        _enemyMoving.MoveToTarget(PlayerControllerManager.Instance.transform, _enemySpeed);
+        _enemyMoving.MoveToTarget(PlayerControllerManager.Instance.transform, _enemyPreferences,_enemySpeed);
         _enemyHealthSlider.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, _enemyHPSliderDistanceFromHead, 0));
     }
 

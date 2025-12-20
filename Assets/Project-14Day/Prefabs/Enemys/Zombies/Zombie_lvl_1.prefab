@@ -84,7 +84,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.41, y: 0.43}
+  m_Size: {x: 0.41, y: 0.45}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -207,7 +207,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.94, y: 1.2}
+  m_Size: {x: 0.96, y: 1.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -456,7 +456,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.41, y: 0.43}
+  m_Size: {x: 0.41, y: 0.45}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -712,7 +712,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.08, y: 2.18}
+  m_Size: {x: 2.08, y: 2.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -768,6 +768,7 @@ GameObject:
   - component: {fileID: 6149843406046155747}
   - component: {fileID: 3818153954855875529}
   - component: {fileID: 8081966248755206998}
+  - component: {fileID: 1452846951464899365}
   m_Layer: 3
   m_Name: Zombie_lvl_1
   m_TagString: Untagged
@@ -817,7 +818,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fe1cc1952132c47ac28ad5915f27eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canMove: 1
   IsMoving: 1
+  _body: {fileID: 449277682171701636}
+  _head: {fileID: 4240436502138564322}
 --- !u!50 &1767293331720961120
 Rigidbody2D:
   serializedVersion: 5
@@ -901,8 +905,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0018710494, y: 1.1285884}
-  m_Size: {x: 0.9542458, y: 1.5563917}
+  m_Offset: {x: -0.019515991, y: 1.471225}
+  m_Size: {x: 1.40032, y: 2.4843163}
   m_Direction: 0
 --- !u!210 &8081966248755206998
 SortingGroup:
@@ -916,6 +920,28 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!95 &1452846951464899365
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790699673487362290}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79bacdf38a833f6408a8294ac23bf2f3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9050013116044599099
 GameObject:
   m_ObjectHideFlags: 0

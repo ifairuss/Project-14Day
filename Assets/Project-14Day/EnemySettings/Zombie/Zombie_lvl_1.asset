@@ -16,7 +16,17 @@ MonoBehaviour:
   Damage: 15
   Speed: 1
   AttackCooldown: 1
-  EnemyHPSliderDistanceFromHead: 2.5
+  EnemyHPSliderDistanceFromHead: 3.3
   EnemyStopDistanceForPlayer: 1.15
+  BodyTopSprite: {fileID: 6284166523789267160, guid: 2da3f92a111a84540ada257c74e9ad6d, type: 3}
+  BodyRightSprite: {fileID: -2485871483528494817, guid: 2da3f92a111a84540ada257c74e9ad6d, type: 3}
+  BodyBottomSprite: {fileID: 6019453725058403666, guid: 2da3f92a111a84540ada257c74e9ad6d, type: 3}
+  HeadTopSprite: {fileID: 9211052458692073003, guid: 2da3f92a111a84540ada257c74e9ad6d, type: 3}
+  HeadRightSprite: {fileID: -980516788960830398, guid: 2da3f92a111a84540ada257c74e9ad6d, type: 3}
+  HeadBottomSprite: {fileID: -8585762769051335824, guid: 2da3f92a111a84540ada257c74e9ad6d, type: 3}
+  LeftHandSprite: {fileID: -1977811604655986376, guid: 2da3f92a111a84540ada257c74e9ad6d, type: 3}
+  RightHandSprite: {fileID: -1977811604655986376, guid: 2da3f92a111a84540ada257c74e9ad6d, type: 3}
+  LeftLegSprite: {fileID: 2485403828518691469, guid: 2da3f92a111a84540ada257c74e9ad6d, type: 3}
+  RightLegSprite: {fileID: 2485403828518691469, guid: 2da3f92a111a84540ada257c74e9ad6d, type: 3}
   EnemyDrop:
   - {fileID: 7102698957492825075, guid: 115c18828b9d1644eb11e43d1a790d4f, type: 3}
