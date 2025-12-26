@@ -20,6 +20,7 @@ public class EnemyMoving : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _enemyAnimator = GetComponent<Animator>();
+        
     }
 
     public void MoveToTarget(Transform target, EnemyPreferences enemyData, float speed)
@@ -50,53 +51,38 @@ public class EnemyMoving : MonoBehaviour
 
     private void Flip(Transform target, EnemyPreferences enemyData)
     {
-        //print(_agent.velocity);
-        float velocityOnTarget = 0.77f;
+        float deltaX = transform.position.x - target.position.x;
+        float deltaY = transform.position.y - target.position.y;
 
-        if (_agent.velocity.x > velocityOnTarget && _agent.velocity.y < velocityOnTarget && _agent.velocity.y > -velocityOnTarget)
+        if(deltaX > deltaY)
         {
-            _body.sprite = enemyData.BodyRightSprite;
-            _head.sprite = enemyData.HeadRightSprite;
-
-            
-
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (deltaX > 0 && _agent.velocity.x < -0.60f)
+            {
+                _body.sprite = enemyData.BodyRightSprite;
+                _head.sprite = enemyData.HeadRightSprite;
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                _body.sprite = enemyData.BodyTopSprite;
+                _head.sprite = enemyData.HeadTopSprite;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
-        else if (_agent.velocity.x < -velocityOnTarget && _agent.velocity.y < velocityOnTarget && _agent.velocity.y > -velocityOnTarget)
+        else
         {
-            _body.sprite = enemyData.BodyRightSprite;
-            _head.sprite = enemyData.HeadRightSprite;
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else if (_agent.velocity.y > velocityOnTarget && _agent.velocity.x < velocityOnTarget && _agent.velocity.x > -velocityOnTarget)
-        {
-            _body.sprite = enemyData.BodyTopSprite;
-            _head.sprite = enemyData.HeadTopSprite;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (_agent.velocity.y < -velocityOnTarget && _agent.velocity.x < velocityOnTarget && _agent.velocity.x > -velocityOnTarget)
-        {
-            _body.sprite = enemyData.BodyBottomSprite;
-            _head.sprite = enemyData.HeadBottomSprite;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (
-            _agent.velocity.y >= -velocityOnTarget &&
-            _agent.velocity.y <= velocityOnTarget && 
-            _agent.velocity.x >= -velocityOnTarget && 
-            _agent.velocity.x <= velocityOnTarget &&
-            target.position.x > transform.position.x)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (
-            _agent.velocity.y >= -velocityOnTarget &&
-            _agent.velocity.y <= velocityOnTarget &&
-            _agent.velocity.x >= -velocityOnTarget &&
-            _agent.velocity.x <= velocityOnTarget &&
-            target.position.x < transform.position.x)
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            if (deltaY > 0 && _agent.velocity.y < -0.60f)
+            {
+                _body.sprite = enemyData.BodyBottomSprite;
+                _head.sprite = enemyData.HeadBottomSprite;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                _body.sprite = enemyData.BodyRightSprite;
+                _head.sprite = enemyData.HeadRightSprite;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
     }
 }

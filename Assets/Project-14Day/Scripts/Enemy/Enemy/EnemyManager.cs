@@ -6,6 +6,9 @@ public class EnemyManager : MonoBehaviour
     [Header("Enemy settings")]
     [SerializeField] private EnemyPreferences _enemyPreferences;
 
+    public Transform EnemyRightHand;
+    public Transform EnemyLeftHand;
+
     private float _enemySpeed;
     private float _enemyAttackCooldown;
     private float _enemyHPSliderDistanceFromHead;
