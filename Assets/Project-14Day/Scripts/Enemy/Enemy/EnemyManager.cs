@@ -23,6 +23,8 @@ public class EnemyManager : MonoBehaviour
 
     private Transform _worldSpaceCanvas;
 
+    private Transform _parentTransform;
+
     private void Start()
     {
         InitializedEnemy();
@@ -33,6 +35,7 @@ public class EnemyManager : MonoBehaviour
         _enemyMoving = GetComponent<EnemyMoving>();
         _enemyHealthSlider = GetComponentInChildren<Slider>();
         _worldSpaceCanvas = GameObject.Find("WorldSpaceCanvas").transform;
+        _parentTransform = GetComponentInParent<Transform>();
 
         EnemySetSettings();
         SliderPreset();
@@ -92,7 +95,7 @@ public class EnemyManager : MonoBehaviour
             EnemyCounterDead.Instance.AddCountedDead();
 
             Destroy(_enemyHealthSlider.gameObject);
-            Destroy(gameObject);
+            Destroy(_parentTransform.gameObject);
             
             Debug.Log($"<color=blue> {gameObject.name} - Enemy is dead </color>");
         }

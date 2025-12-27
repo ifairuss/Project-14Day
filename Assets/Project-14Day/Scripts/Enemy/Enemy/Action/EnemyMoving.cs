@@ -15,6 +15,8 @@ public class EnemyMoving : MonoBehaviour
     [Header("Flip sprite")]
     [SerializeField] private SpriteRenderer _body;
     [SerializeField] private SpriteRenderer _head;
+    [SerializeField] private SpriteRenderer _leftHand;
+    [SerializeField] private SpriteRenderer _rightHand;
 
     public void Start()
     {
@@ -61,12 +63,16 @@ public class EnemyMoving : MonoBehaviour
                 _body.sprite = enemyData.BodyRightSprite;
                 _head.sprite = enemyData.HeadRightSprite;
                 transform.rotation = Quaternion.Euler(0, 180, 0);
+                _leftHand.sortingOrder = -20;
+                _rightHand.sortingOrder = 20;
             }
             else
             {
                 _body.sprite = enemyData.BodyTopSprite;
                 _head.sprite = enemyData.HeadTopSprite;
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+                _leftHand.sortingOrder = -20;
+                _rightHand.sortingOrder = -20;
             }
         }
         else
@@ -76,12 +82,16 @@ public class EnemyMoving : MonoBehaviour
                 _body.sprite = enemyData.BodyBottomSprite;
                 _head.sprite = enemyData.HeadBottomSprite;
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+                _leftHand.sortingOrder = 20;
+                _rightHand.sortingOrder = 20;
             }
             else
             {
                 _body.sprite = enemyData.BodyRightSprite;
                 _head.sprite = enemyData.HeadRightSprite;
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+                _leftHand.sortingOrder = -20;
+                _rightHand.sortingOrder = 20;
             }
         }
     }

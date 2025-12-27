@@ -117,6 +117,8 @@ public class EnemySpawner : MonoBehaviour
 
                 GameObject enemy = Instantiate(EnemyThisSpawnerPreferences.EnemyPrefabs[randomEnemy], EnemySpawnPoints[spawnPointIndex].position, Quaternion.identity);
 
+                enemy.name = $"💀{enemy.name}";
+
                 enemy.transform.SetParent(transform);
 
                 print($"{EnemyThisSpawnerPreferences.name}");
