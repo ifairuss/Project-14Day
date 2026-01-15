@@ -415,6 +415,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &5252243218599384666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4015937188987062764}
+  m_Layer: 3
+  m_Name: EnemuTragetPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4015937188987062764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5252243218599384666}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4554322604954132469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5496361215732408454
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +877,7 @@ Transform:
   m_Children:
   - {fileID: 3424106471239098975}
   - {fileID: 6855669977532657584}
+  - {fileID: 4015937188987062764}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5609875931843850007
@@ -876,11 +908,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canMove: 1
+  _canDebug: 0
   IsMoving: 1
+  _enemyTargetPoint: {fileID: 4015937188987062764}
+  _enemyWeaponPoint: {fileID: 3036264709184406390}
   _body: {fileID: 6311603512556193012}
   _head: {fileID: 8331353398775891427}
   _leftHand: {fileID: 2442214920792257716}
   _rightHand: {fileID: 611075905023265367}
+  _visibleEnemyDeltaPosition: 0
 --- !u!50 &1631214369503936839
 Rigidbody2D:
   serializedVersion: 5
@@ -917,18 +953,18 @@ NavMeshAgent:
   m_GameObject: {fileID: 7148706404503072482}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 0.2
   m_Speed: 2
-  m_Acceleration: 60
+  m_Acceleration: 180
   avoidancePriority: 99
-  m_AngularSpeed: 80
+  m_AngularSpeed: 300
   m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 0.00001
-  m_BaseOffset: -1.07
-  m_WalkableMask: 4294967295
+  m_BaseOffset: 0
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!70 &7028875838623900058
 CapsuleCollider2D:
