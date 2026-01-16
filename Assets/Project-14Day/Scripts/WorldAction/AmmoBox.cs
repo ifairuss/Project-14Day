@@ -19,6 +19,6 @@ public class AmmoBox : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 15);
+        Destroy(gameObject, 30);
     }
 }

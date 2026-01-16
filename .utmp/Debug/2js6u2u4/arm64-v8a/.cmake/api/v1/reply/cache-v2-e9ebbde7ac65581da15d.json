@@ -163,7 +163,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "RelWithDebInfo"
+			"value" : "Debug"
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -175,7 +175,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "a:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/arm64-v8a"
+			"value" : "a:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/arm64-v8a"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -679,7 +679,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "A:\\MyGameUnity\\GitHub\\Project-14Day\\.utmp\\RelWithDebInfo\\6to3m4i4\\prefab\\arm64-v8a\\prefab"
+			"value" : "A:\\MyGameUnity\\GitHub\\Project-14Day\\.utmp\\Debug\\2js6u2u4\\prefab\\arm64-v8a\\prefab"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -775,7 +775,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "A:\\MyGameUnity\\GitHub\\Project-14Day\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\build\\intermediates\\cxx\\RelWithDebInfo\\6to3m4i4\\obj\\arm64-v8a"
+			"value" : "A:\\MyGameUnity\\GitHub\\Project-14Day\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\build\\intermediates\\cxx\\Debug\\2js6u2u4\\obj\\arm64-v8a"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -1047,7 +1047,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "A:\\MyGameUnity\\GitHub\\Project-14Day\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\build\\intermediates\\cxx\\RelWithDebInfo\\6to3m4i4\\obj\\arm64-v8a"
+			"value" : "A:\\MyGameUnity\\GitHub\\Project-14Day\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\build\\intermediates\\cxx\\Debug\\2js6u2u4\\obj\\arm64-v8a"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1319,7 +1319,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/arm64-v8a"
+			"value" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/arm64-v8a"
 		},
 		{
 			"name" : "Unity_IS_TOP_LEVEL",
@@ -1355,7 +1355,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/game-activity"
+			"value" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/game-activity"
 		},
 		{
 			"name" : "game_BINARY_DIR",
@@ -1367,7 +1367,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/arm64-v8a/GameActivity"
+			"value" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/arm64-v8a/GameActivity"
 		},
 		{
 			"name" : "game_IS_TOP_LEVEL",
@@ -1415,7 +1415,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/games-frame-pacing"
+			"value" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/games-frame-pacing"
 		},
 		{
 			"name" : "swappywrapper_BINARY_DIR",
@@ -1427,7 +1427,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/arm64-v8a/FramePacing"
+			"value" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/arm64-v8a/FramePacing"
 		},
 		{
 			"name" : "swappywrapper_IS_TOP_LEVEL",

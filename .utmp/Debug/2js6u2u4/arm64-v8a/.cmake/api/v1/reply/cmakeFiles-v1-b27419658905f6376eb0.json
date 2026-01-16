@@ -41,7 +41,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeSystem.cmake"
+			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeSystem.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -307,7 +307,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCCompiler.cmake"
+			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -541,7 +541,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake"
+			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -692,7 +692,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCCompiler.cmake"
+			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -786,27 +786,27 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake"
+			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake"
 		},
 		{
 			"path" : "GameActivity/CMakeLists.txt"
 		},
 		{
 			"isExternal" : true,
-			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/game-activity/game-activityConfig.cmake"
+			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/game-activity/game-activityConfig.cmake"
 		},
 		{
 			"path" : "FramePacing/CMakeLists.txt"
 		},
 		{
 			"isExternal" : true,
-			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/games-frame-pacing/games-frame-pacingConfig.cmake"
+			"path" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/games-frame-pacing/games-frame-pacingConfig.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/RelWithDebInfo/6to3m4i4/arm64-v8a",
+		"build" : "A:/MyGameUnity/GitHub/Project-14Day/.utmp/Debug/2js6u2u4/arm64-v8a",
 		"source" : "A:/MyGameUnity/GitHub/Project-14Day/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp"
 	},
 	"version" : 
