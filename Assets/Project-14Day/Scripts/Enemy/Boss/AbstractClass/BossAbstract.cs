@@ -18,21 +18,13 @@ public abstract class BossAbstract : MonoBehaviour
     public float HealthInPhaseTwo;
     public float HealthInPhaseOne;
 
-    [Header("Damage Preferences")]
-    [SerializeField] private int _defaulthDamage;
-    [SerializeField] private int _rangeDamage;
-    [SerializeField] private int _splashDamage;
-
-    [Header("Boss Attack Coldown")]
-    [SerializeField] private float _defaulthDamageColdown;
-    [SerializeField] private float _rangeDamageColdown;
-    [SerializeField] private float _splashDamageColdown;
-
     [Header("System status")]
-    [SerializeField] private bool _isMoving;
+    public bool IsMoving;
+
+    [Space]
+    public PlayerControllerManager PlayerControllerManager;
 
     private NavMeshAgent _agent;
-    private PlayerControllerManager _playerControllerManager;
     private BossHPData _bossUITransform;
 
     private GameObject _bossHealthBar;
@@ -59,7 +51,7 @@ public abstract class BossAbstract : MonoBehaviour
     public void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _playerControllerManager = GameObject.FindWithTag("Player").GetComponent<PlayerControllerManager>();
+        PlayerControllerManager = GameObject.FindWithTag("Player").GetComponent<PlayerControllerManager>();
         _bossUITransform = GameObject.FindWithTag("WorldUI").GetComponent<BossHPData>();
 
         _agent.speed = _speed;
@@ -96,9 +88,9 @@ public abstract class BossAbstract : MonoBehaviour
         }
     }
 
-    private void Flip(Transform _playerControllerManager)
+    private void Flip(Transform PlayerControllerManager)
     {
-        if (_playerControllerManager.position.x > transform.position.x)
+        if (PlayerControllerManager.position.x > transform.position.x)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
@@ -110,43 +102,34 @@ public abstract class BossAbstract : MonoBehaviour
 
     public virtual void BossMoving()
     {
-        if (_playerControllerManager == null && Health > 0) return;
+        if (PlayerControllerManager == null && Health > 0) return;
 
-        _agent.SetDestination(_playerControllerManager.transform.position);
+        _agent.SetDestination(PlayerControllerManager.transform.position);
 
-        if (Vector3.Distance(_playerControllerManager.transform.position, transform.position) <= (_agent.stoppingDistance + 0.2f))
+        if (Vector3.Distance(PlayerControllerManager.transform.position, transform.position) <= (_agent.stoppingDistance + 0.2f))
         {
-            _isMoving = false;
+            IsMoving = false;
         }
         else
         {
-            _isMoving = true;
+            IsMoving = true;
         }
 
-        Flip(_playerControllerManager.transform);
+        Flip(PlayerControllerManager.transform);
     }
 
     public virtual void BossAttack()
     {
         //Не готового убрав но не зробив - потім доробити
-
-        if (_defaulthDamageColdown > 0)
+        if (Vector3.Distance(transform.position, PlayerControllerManager.transform.position) <= (_agent.stoppingDistance + 0.3f))
         {
-            _defaulthDamageColdown -= 0.1f * Time.deltaTime;
-        }
-
-        if (Vector3.Distance(transform.position, _playerControllerManager.transform.position) <= (_agent.stoppingDistance + 0.3f))
-        {
-            if(_defaulthDamageColdown <= 0 && !_isMoving)
-            {
-                PlayerTakeDamage(_defaulthDamage);
-            }
+           
         }
     }
 
     public void PlayerTakeDamage(int damage)
     {
-        _playerControllerManager.TakeDamage(damage);
+        PlayerControllerManager.TakeDamage(damage);
     }
 
     public virtual void BossDead()

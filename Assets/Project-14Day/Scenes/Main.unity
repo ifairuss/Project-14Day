@@ -18245,7 +18245,7 @@ MonoBehaviour:
   - {fileID: 1148649116}
   _waveText: {fileID: 1997028931}
   _timerText: {fileID: 5602264120507367186}
-  _waves: 1
+  _waves: 5
   _enemyCount: 0
   _minEnemySpawnInWaves: 0
   _maxEnemySpawnInWaves: 0
