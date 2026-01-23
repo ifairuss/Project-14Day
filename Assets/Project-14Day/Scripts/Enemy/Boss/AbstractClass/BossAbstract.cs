@@ -19,18 +19,19 @@ public abstract class BossAbstract : MonoBehaviour
     public float HealthInPhaseOne;
 
     [Header("System status")]
-    public bool IsMoving;
+    [SerializeField] private bool _isMoving = true;
 
     [Space]
     public PlayerControllerManager PlayerControllerManager;
 
-    private NavMeshAgent _agent;
     private BossHPData _bossUITransform;
 
     private GameObject _bossHealthBar;
     private Image _imageHealthMiddleground;
     private Image _imageHealthForwardground;
     private TextMeshProUGUI _bossNameUIText;
+
+    [HideInInspector] public NavMeshAgent Agent;
 
     public bool BossSpawnedPhaseThree;
     public bool BossSpawnedPhaseTwo;
@@ -50,11 +51,11 @@ public abstract class BossAbstract : MonoBehaviour
 
     public void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
+        Agent = GetComponent<NavMeshAgent>();
         PlayerControllerManager = GameObject.FindWithTag("Player").GetComponent<PlayerControllerManager>();
         _bossUITransform = GameObject.FindWithTag("WorldUI").GetComponent<BossHPData>();
 
-        _agent.speed = _speed;
+        Agent.speed = _speed;
 
         BossUIHealthGetComponents();
 
@@ -102,18 +103,9 @@ public abstract class BossAbstract : MonoBehaviour
 
     public virtual void BossMoving()
     {
-        if (PlayerControllerManager == null && Health > 0) return;
+        if (PlayerControllerManager == null && Health > 0 && _isMoving) return;
 
-        _agent.SetDestination(PlayerControllerManager.transform.position);
-
-        if (Vector3.Distance(PlayerControllerManager.transform.position, transform.position) <= (_agent.stoppingDistance + 0.2f))
-        {
-            IsMoving = false;
-        }
-        else
-        {
-            IsMoving = true;
-        }
+        Agent.SetDestination(PlayerControllerManager.transform.position);
 
         Flip(PlayerControllerManager.transform);
     }
@@ -121,10 +113,10 @@ public abstract class BossAbstract : MonoBehaviour
     public virtual void BossAttack()
     {
         //Не готового убрав но не зробив - потім доробити
-        if (Vector3.Distance(transform.position, PlayerControllerManager.transform.position) <= (_agent.stoppingDistance + 0.3f))
-        {
-           
-        }
+       //if (Vector3.Distance(transform.position, PlayerControllerManager.transform.position) <= (Agent.stoppingDistance + 0.3f))
+       //{
+       //   
+       //}
     }
 
     public void PlayerTakeDamage(int damage)

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ZombieBoss : BossAbstract
 {
@@ -8,6 +10,12 @@ public class ZombieBoss : BossAbstract
     public int DefaulthDamage;
     public int RangeDamage;
     public int SplashDamage;
+
+    [Space]
+    [SerializeField] private float _splashAttackRadius;
+
+    [Space]
+    [SerializeField] private LayerMask _splashDamageLayer;
 
     [Header("Boss help")]
     [SerializeField] private List<GameObject> _zombieVariable;
@@ -19,13 +27,15 @@ public class ZombieBoss : BossAbstract
     [SerializeField] private GameObject _splashRangeCircle;
 
     [Header("Boss Attack Coldown")]
-    [SerializeField] private float DefaulthDamageColdown = 1.5f;
-    [SerializeField] private float SplashDamageColdown = 3f;
-    [SerializeField] private float RangeDamageColdown = 6f;
+    [SerializeField] private float DefaulthDamageCooldown = 1.5f;
+    [SerializeField] private float SplashDamageCooldown = 3f;
+    [SerializeField] private float RageDamageCooldown = 6f;
 
     private float _splashDamageCooldown = 3f;
     private float _defaulthDamageCooldown = 1.5f;
-    private float _rangeDamageCooldown = 6f;
+    private float _rageDamageCooldown = 6f;
+
+    private float _scale = 1;
 
     private bool _isAttack;
 
@@ -33,9 +43,9 @@ public class ZombieBoss : BossAbstract
     {
         _splashRangeCircle.SetActive(false);
 
-        _splashDamageCooldown = SplashDamageColdown;
-        _defaulthDamageCooldown = DefaulthDamageColdown;
-        _rangeDamageCooldown = RangeDamageColdown;
+        _splashDamageCooldown = SplashDamageCooldown;
+        _defaulthDamageCooldown = DefaulthDamageCooldown;
+        _rageDamageCooldown = RageDamageCooldown;
     }
 
     public override void Update()
@@ -44,11 +54,18 @@ public class ZombieBoss : BossAbstract
         BossSpawnedEnemy();
 
         ColdownAttack();
+
+        if (_scale < (_splashAttackRadius * 2) && _isAttack)
+        {
+            _scale += 2.5f * Time.fixedDeltaTime;
+        }
+
+        _splashRangeCircle.transform.localScale = new Vector3(_scale, _scale, _scale);
     }
 
     private void ColdownAttack()
     {
-        if (_splashDamageCooldown <= 0 && _rangeDamageCooldown <= 0 && _defaulthDamageCooldown <= 0) { return; }
+        if (_splashDamageCooldown <= 0 && _rageDamageCooldown <= 0 && _defaulthDamageCooldown <= 0) { return; }
 
         if (_splashDamageCooldown > 0)
         {
@@ -60,9 +77,9 @@ public class ZombieBoss : BossAbstract
             _defaulthDamageCooldown -= 0.1f * Time.deltaTime;
         }
 
-        if (_rangeDamageCooldown > 0)
+        if (_rageDamageCooldown > 0)
         {
-            _rangeDamageCooldown -= 0.1f * Time.deltaTime;
+            _rageDamageCooldown -= 0.1f * Time.deltaTime;
         }
     }
 
@@ -129,16 +146,18 @@ public class ZombieBoss : BossAbstract
         {
             if (_defaulthDamageCooldown <= 0 && _splashDamageCooldown <= 0)
             {
-                int randomAttack = Random.Range(0, 5);
+                int randomAttack = Random.Range(0, 6);
 
-                if (randomAttack == 3 && !IsMoving && !_isAttack)
+                if ((randomAttack == 3 || randomAttack == 6 )
+                    && Vector3.Distance(transform.position, PlayerControllerManager.transform.position) <= (Agent.stoppingDistance + 0.3f) 
+                    && !_isAttack)
                 {
                     _isAttack = true;
                     StartCoroutine(SplashAttack());
 
                     print($"Boss attck ( <color=Orange> Splah attack </color> )");
                 }
-                else if (randomAttack != 3 && !_isAttack)
+                else if (randomAttack != 3 && randomAttack != 6 && !_isAttack)
                 {
                     DefaulthAttack();
                 }
@@ -146,26 +165,30 @@ public class ZombieBoss : BossAbstract
         }
         else if (Health <= HealthInPhaseTwo)
         {
-            if (_defaulthDamageCooldown <= 0 && _splashDamageCooldown <= 0 && _rangeDamageCooldown <= 0)
+            if (_defaulthDamageCooldown <= 0 && _splashDamageCooldown <= 0 && _rageDamageCooldown <= 0)
             {
-                int randomAttack = Random.Range(0, 10);
+                int randomAttack = Random.Range(0, 12);
 
-                if (randomAttack == 3 && !IsMoving && !_isAttack)
+                if ((randomAttack == 3 || randomAttack == 6)
+                    && Vector3.Distance(transform.position, PlayerControllerManager.transform.position) <= (Agent.stoppingDistance + 0.3f)
+                    && !_isAttack)
                 {
                     _isAttack = true;
                     StartCoroutine(SplashAttack());
-                    _splashDamageCooldown = SplashDamageColdown;
+                    _splashDamageCooldown = SplashDamageCooldown;
 
                     print($"Boss attck ( <color=Orange> Splah attack </color> )");
                 }
-                else if (randomAttack == 6 && !IsMoving && !_isAttack)
+                else if (randomAttack == 9 
+                    && Vector3.Distance(transform.position, PlayerControllerManager.transform.position) <= (Agent.stoppingDistance + 0.3f)
+                    && !_isAttack)
                 {
                     PlayerControllerManager.TakeDamage(RangeDamage);
-                    _rangeDamageCooldown = RangeDamageColdown;
+                    _rageDamageCooldown = RageDamageCooldown;
 
                     print($"Boss attck ( <color=red> Range attack </color> )");
                 }
-                else if (randomAttack != 3 && randomAttack != 6 && !_isAttack)
+                else if (randomAttack != 3 && randomAttack != 6 && randomAttack != 9 && !_isAttack)
                 {
                     DefaulthAttack();
                 }
@@ -175,10 +198,10 @@ public class ZombieBoss : BossAbstract
 
     private void DefaulthAttack()
     {
-        if (!IsMoving)
+        if (Vector3.Distance(transform.position, PlayerControllerManager.transform.position) <= (Agent.stoppingDistance + 0.3f))
         {
             PlayerControllerManager.TakeDamage(DefaulthDamage);
-            _defaulthDamageCooldown = DefaulthDamageColdown;
+            _defaulthDamageCooldown = DefaulthDamageCooldown;
 
             print($"Boss attck ( <color=Yellow> Defaulth </color> )");
         }
@@ -187,11 +210,18 @@ public class ZombieBoss : BossAbstract
     private IEnumerator SplashAttack()
     {
         _splashRangeCircle.SetActive(true);
+        _scale = 1;
+        _splashRangeCircle.transform.localScale = new Vector3(_scale, _scale, _scale);
 
         yield return new WaitForSeconds(_splashAttackWaitToStart);
 
-        PlayerControllerManager.TakeDamage(SplashDamage);
-        _splashDamageCooldown = SplashDamageColdown;
+
+        if (Physics2D.OverlapCircle(transform.position, _splashAttackRadius, _splashDamageLayer))
+        {
+            PlayerControllerManager.TakeDamage(SplashDamage);
+        }
+
+        _splashDamageCooldown = SplashDamageCooldown;
 
         _splashRangeCircle.SetActive(false);
         _isAttack = false;

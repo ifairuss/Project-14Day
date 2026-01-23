@@ -13,7 +13,7 @@ public class TestAddAmmo : MonoBehaviour
 
             if (_timer <= 0)
             {
-                player.AddAmmo(1);
+                player.AddAmmo(5);
                 _timer = _timeToAddAmmo;
             }
             else
