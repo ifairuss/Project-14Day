@@ -78,7 +78,7 @@ GameObject:
   m_Layer: 8
   m_Name: Boss_1
   m_TagString: Untagged
-  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -120,19 +120,14 @@ MonoBehaviour:
   HealthInPhaseThree: 750
   HealthInPhaseTwo: 500
   HealthInPhaseOne: 300
-  _isMoving: 1
+  IsMoving: 1
   PlayerControllerManager: {fileID: 0}
-  Agent: {fileID: 0}
   BossSpawnedPhaseThree: 0
   BossSpawnedPhaseTwo: 0
   BossSpawnedPhaseOne: 0
   DefaulthDamage: 20
-  RangeDamage: 40
-  SplashDamage: 35
-  _splashAttackRadius: 5
-  _splashDamageLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  RangeDamage: 50
+  SplashDamage: 30
   _zombieVariable:
   - {fileID: 7148706404503072482, guid: 7d04e260550f09d4ba0e4bc0d4766371, type: 3}
   _spawnVariable:
@@ -140,11 +135,11 @@ MonoBehaviour:
   - {fileID: 5940227729434121028}
   - {fileID: 5076719876828672767}
   _allBossEnemy: []
-  _splashAttackWaitToStart: 4
+  _splashAttackWaitToStart: 6
   _splashRangeCircle: {fileID: 7848592945705980021}
-  DefaulthDamageCooldown: 0.2
-  SplashDamageCooldown: 0.4
-  RageDamageCooldown: 0.5
+  DefaulthDamageColdown: 0.2
+  SplashDamageColdown: 0.5
+  RangeDamageColdown: 1
 --- !u!195 &6367103949990493844
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1053,7 +1048,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.1985, y: 5.1985, z: 5.1985}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2874022531863965319}
